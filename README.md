@@ -53,9 +53,6 @@ O código e a documentação original deste projeto são distribuídos sob a **l
 
 A MIT permite reutilização, modificação e distribuição, inclusive comercial, com preservação do aviso de copyright e da licença. A solicitação de citação acadêmica é uma prática de atribuição; não adiciona uma restrição à MIT. [Texto e explicação da licença](https://choosealicense.com/licenses/mit/).
 
-A licença não pretende relicenciar a nota da SBA, logotipos ou outros materiais externos. Consulte [NOTICE.md](NOTICE.md). O PDF da SBA não está redistribuído no pacote; são fornecidos links e referência.
-
-
 ## English overview
 
 **GLP-1 / Perioperatório** is an independent, bilingual professional reference for preoperative planning and day-of-surgery assessment. It is based on the Brazilian Society of Anesthesiology note dated **15 May 2026**, with the source mapping and software safeguards documented separately. It does not have SBA endorsement or documented independent clinical validation.
