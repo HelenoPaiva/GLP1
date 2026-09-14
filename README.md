@@ -6,7 +6,6 @@ Aplicativo web independente para profissionais de saúde, organizado em dois mom
 
 **Autoria e manutenção:** Heleno Paiva · [heleno@gmail.com](mailto:heleno@gmail.com)
 
-**GitHub:** [HelenoPaiva](https://github.com/HelenoPaiva) — endereço temporário do perfil; substituir pelo repositório definitivo.
 
 > Ferramenta independente, sem vínculo ou endosso oficial da SBA e sem validação clínica independente documentada. Apoia a consulta profissional; não substitui avaliação individual, protocolos institucionais ou julgamento clínico. O número da versão identifica o software, não uma atualização automática da recomendação.
 
