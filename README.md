@@ -24,15 +24,7 @@ Aplicativo web independente para profissionais de saúde, organizado em dois mom
 
 
 
-## Base clínica e limites
 
-A fonte fixa desta versão é a nota SBA de **15/05/2026**. A correspondência entre cada regra, sua página de origem e as salvaguardas introduzidas no software está em [CLINICAL_MAPPING.md](CLINICAL_MAPPING.md). As referências estão em [REFERENCES.md](REFERENCES.md).
-
-O aplicativo não combina diretrizes de outras sociedades nem resolve silenciosamente ambiguidades do documento. Respostas ausentes não equivalem a “não”; um exame inconclusivo não equivale a baixo risco. As adaptações de segurança do software estão identificadas como tal, não como recomendações adicionais da SBA.
-
-Esta versão não fornece protocolo para urgências, pediatria, reinício pós-operatório, tratamento individual do diabetes ou prescrição automática. Não existe atualização automática da fonte. Alterações futuras do documento exigem revisão explícita do conteúdo e das regras.
-
-A versão **1.0.1** altera créditos, publicação, documentação e acomodação do novo link no cabeçalho. O motor de decisão é idêntico ao da **1.0.0**, exceto pelo identificador de versão. [Registro da comparação](publication-integrity.json).
 
 ## Privacidade e contato
 
@@ -46,9 +38,7 @@ Para manutenção, falhas ou sugestões: **Heleno Paiva — [heleno@gmail.com](m
 
 ### Software
 
-> Paiva, H. (2026). *GLP-1 / Perioperatório* (Versão 1.0.1) [Software]. https://github.com/HelenoPaiva
-
-**A URL acima é um placeholder do perfil.** Substitua pelo repositório definitivo antes de empregar a referência em uma publicação. Nenhum DOI foi atribuído neste pacote.
+> Paiva, H. (2026). *GLP-1 / Perioperatório* (Versão 1.0.1) [Software]. https://github.com/HelenoPaiva/GLP1
 
 O arquivo [CITATION.cff](CITATION.cff) contém os metadados para a opção **“Cite this repository”** do GitHub, quando colocado na branch padrão. O arquivo [CITATION.bib](CITATION.bib) oferece as entradas do software e da nota da SBA. [Documentação oficial de citações no GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files).
 
@@ -66,29 +56,6 @@ A MIT permite reutilização, modificação e distribuição, inclusive comercia
 
 A licença não pretende relicenciar a nota da SBA, logotipos ou outros materiais externos. Consulte [NOTICE.md](NOTICE.md). O PDF da SBA não está redistribuído no pacote; são fornecidos links e referência.
 
-## Testes e manutenção
-
-A publicação 1.0.1 passou por **124 verificações nomeadas do motor/estrutura**, **460 cenários invariantes** e **117 verificações de interface em Chromium**. Ver [TESTING.md](TESTING.md), [test-results.json](test-results.json) e [browser-results.json](browser-results.json).
-
-Esses testes não constituem validação clínica nem verificação de uma publicação remota. O pacote inclui os scripts reproduzíveis; executar o site não exige as ferramentas de teste.
-
-```text
-index.html                   Aplicativo completo
-README.md                    Apresentação e publicação
-LICENSE                      Licença MIT
-CITATION.cff                 Metadados de citação para GitHub
-CITATION.bib                 Entradas bibliográficas
-REFERENCES.md                Referências e distinção entre fonte e software
-NOTICE.md                    Direitos de terceiros e independência
-CLINICAL_MAPPING.md          Mapa entre fonte, regras e salvaguardas
-CHANGELOG.md                 Histórico de alterações
-TESTING.md                   Escopo e limites dos testes
-publication-integrity.json   Comparação com o motor 1.0.0
-tests.cjs / test-results.json Testes de motor e resultados
-browser-tests.py             Testes de interface
-browser-results.json         Resultado da execução em Chromium
-.nojekyll / .gitignore        Apoio à publicação e manutenção
-```
 
 ## English overview
 
