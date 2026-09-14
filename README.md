@@ -22,34 +22,7 @@ Aplicativo web independente para profissionais de saúde, organizado em dois mom
 | Privacidade | Sem identificação do paciente, conta, anúncios, analytics ou envio de respostas pelo código do app. |
 | Distribuição | Um único `index.html`, sem bibliotecas externas, instalação ou compilação. |
 
-## Publicar no GitHub Pages — pelo navegador
 
-Para atualizar um site já existente, substitua `index.html` na pasta/branch que já está publicada. Para um repositório novo:
-
-1. Crie ou abra o repositório e escolha **Add file → Upload files**.
-2. Extraia o ZIP e envie **os arquivos extraídos**, não apenas o ZIP. Deixe `index.html`, `README.md`, `LICENSE` e `CITATION.cff` na raiz do repositório; os demais arquivos de documentação podem ficar junto deles. Faça o commit.
-3. Em **Settings → Pages**, selecione **Deploy from a branch**, a branch **main** e a pasta **/(root)**. Salve.
-4. Abra o endereço mostrado pelo GitHub após a publicação. Confira **v1.0.1**, o botão **GitHub** no topo e **Heleno Paiva / heleno@gmail.com** no rodapé.
-
-Somente `index.html` é necessário para executar a interface; os outros arquivos documentam autoria, licença, referências e testes. O `.nojekyll` incluído é vazio e pode ser enviado junto. A publicação é feita pelo GitHub, não pelo aplicativo.
-
-[Documentação oficial do GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
-
-## Atualizar o placeholder do GitHub
-
-No `index.html`, procure por **`PUBLICATION SETTINGS`**. O bloco é:
-
-```javascript
-const MAINTAINER=Object.freeze({
-  name:'Heleno Paiva',
-  email:'heleno@gmail.com',
-  githubUrl:'https://github.com/HelenoPaiva' // Placeholder supplied by the maintainer.
-});
-```
-
-Troque apenas `githubUrl` pela URL completa do repositório definitivo. Esse valor alimenta o botão do topo e o link do painel de informações.
-
-Atualize também a URL do software em `README.md`, `CITATION.cff`, `CITATION.bib` e `REFERENCES.md`. A propriedade `authors.website` no CFF pode continuar apontando para seu perfil. Não há endereço fictício de repositório, DOI ou ORCID neste pacote.
 
 ## Base clínica e limites
 
