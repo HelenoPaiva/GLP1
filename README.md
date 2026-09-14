@@ -40,7 +40,6 @@ Para manutenção, falhas ou sugestões: **Heleno Paiva — [heleno@gmail.com](m
 
 > Paiva, H. (2026). *GLP-1 / Perioperatório* (Versão 1.0.1) [Software]. https://github.com/HelenoPaiva/GLP1
 
-O arquivo [CITATION.cff](CITATION.cff) contém os metadados para a opção **“Cite this repository”** do GitHub, quando colocado na branch padrão. O arquivo [CITATION.bib](CITATION.bib) oferece as entradas do software e da nota da SBA. [Documentação oficial de citações no GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files).
 
 ### Fonte clínica — citar separadamente
 
