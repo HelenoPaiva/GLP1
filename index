@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#101419">
+<meta name="description" content="Apoio profissional à decisão perioperatória de GLP-1, baseado na nota SBA de 15/05/2026. Português e inglês. Ferramenta independente.">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231e362f'/%3E%3Cpath d='M20 14v24a10 10 0 0 0 10 10h16M20 24h16a10 10 0 0 1 10 10v14m-7-7 7 7 7-7' fill='none' stroke='%236ed7bf' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<title>GLP-1 | Perioperatório</title>
+<style>
+/* GLP-1 / Perioperatório 1.0 — self-contained dark interface. */
+:root{color-scheme:dark;--bg:#101419;--surface:#181e25;--raised:#1e262f;--inset:#13191f;--ink:#edf2f5;--muted:#a3b1bd;--line:#35424d;--accent:#6ed7bf;--accent-ink:#0d2923;--soft:#213e38;--warn:#f0c282;--warn-bg:#332b22;--danger:#f5a3aa;--danger-bg:#362329;--radius:16px;--shadow:0 10px 32px #00000016}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}button,a,input,label,select{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:not-allowed}a{color:var(--accent);text-underline-offset:3px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}h1,h2,h3,p{margin:0}h1{font-size:21px;line-height:1.25;letter-spacing:-.7px;font-weight:720}h2{font-size:18px;line-height:1.35;letter-spacing:-.3px}h3{font-size:14px;line-height:1.4}small{font-size:12px}svg{width:20px;height:20px;flex:none;vertical-align:middle;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}fieldset{border:0;padding:0;margin:0;min-width:0}legend{padding:0;margin-bottom:10px;font-weight:600;width:100%}[hidden]{display:none!important}.wrap{max-width:1176px;margin:auto;padding:0 28px}.topbar{border-bottom:1px solid var(--line);background:var(--bg)}.top-inner{min-height:90px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:13px;min-width:0}.brand-icon{width:42px;height:42px;border:1px solid #427567;border-radius:13px;background:var(--soft);color:var(--accent);display:grid;place-items:center}.brand-icon svg{width:25px;height:25px}.brand-sub{font-size:12px;color:var(--muted);margin-top:4px}.version{font-size:10px;padding:3px 6px;border:1px solid var(--line);border-radius:5px;color:var(--muted);vertical-align:middle;margin-left:7px;font-weight:600;letter-spacing:.3px}.top-actions{display:flex;align-items:center;gap:7px;flex:none}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--raised);color:var(--ink);border-radius:10px;min-height:44px;padding:10px 13px;font-size:13px;font-weight:600;text-decoration:none}.btn:hover{border-color:#728c9a;background:#28323c}.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.btn.primary:hover{background:#8fe4d0}.btn.ghost{border-color:transparent;background:transparent;color:var(--muted)}.btn.ghost:hover{background:var(--raised);color:var(--ink)}.btn.small{min-height:40px;padding:8px 11px;font-size:12px}.btn svg{width:17px;height:17px}.lang-btn{min-width:68px}.workspace{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(330px,1fr);gap:24px;align-items:start}.page-main{padding-top:24px}.form-column{min-width:0}.mode-switch{display:grid;grid-template-columns:1fr 1fr;background:var(--inset);border:1px solid var(--line);border-radius:13px;padding:5px;gap:5px;margin-bottom:18px}.mode-switch button{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 9px;min-height:48px;border:1px solid transparent;background:transparent;border-radius:9px;color:var(--muted);font-weight:600;font-size:14px;line-height:1.3}.mode-switch button:hover{background:var(--raised)}.mode-switch button[aria-pressed=true]{background:var(--soft);color:var(--accent);border-color:#477769}.mode-switch svg{width:18px;height:18px}.notice{display:flex;align-items:flex-start;gap:8px;color:var(--muted);font-size:11px;line-height:1.5;padding:0 2px 19px}.notice svg{width:15px;height:15px;margin-top:1px}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:16px}.card-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:20px}.step-num{width:30px;height:30px;display:grid;place-items:center;background:var(--raised);border:1px solid var(--line);color:var(--muted);border-radius:9px;font-weight:650;font-size:12px;flex:none;font-variant-numeric:tabular-nums}.card-head p{font-size:12px;color:var(--muted);margin-top:4px}.question+.question{margin-top:20px}.hint{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}.choices{display:flex;flex-wrap:wrap;gap:8px}.choice{position:relative;display:flex;flex:1 1 0;align-items:center;min-width:70px}.choice input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.choice span{width:100%;min-height:46px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--inset);color:var(--muted);line-height:1.35;font-size:13px;font-weight:550;transition:background .12s,border-color .12s}.choice input:hover+span{border-color:#6b8c89}.choice input:checked+span{background:var(--soft);color:var(--accent);border-color:var(--accent);font-weight:650}.choice input:focus-visible+span{outline:3px solid var(--accent);outline-offset:3px}.choices.wrap-choices .choice{flex-basis:calc(50% - 8px)}.field-label{display:block;font-weight:600;margin-bottom:9px}.select,input[type=text]{display:block;width:100%;min-height:46px;background:var(--inset);border:1px solid var(--line);border-radius:9px;padding:11px 12px;color:var(--ink)}select{max-width:100%}input::placeholder{color:#8c9ca9;opacity:1}.num-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.numeric{font-variant-numeric:tabular-nums}.input-tail{font-weight:500;color:var(--muted);font-size:12px}.risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.risk-group{border:1px solid var(--line);border-radius:11px;padding:13px 12px;background:var(--inset)}.risk-group h3{display:flex;align-items:center;gap:7px;color:var(--ink);margin-bottom:9px;font-size:13px}.risk-group h3 svg{width:16px;height:16px;color:var(--muted)}.check{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.5;cursor:pointer;min-height:44px;padding:10px 1px}.check input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--accent);flex:none;cursor:pointer}.check:has(input:checked){color:var(--accent)}.risk-extra{margin-top:15px;padding-top:15px;border-top:1px dashed var(--line)}.risk-extra h3{font-size:12px;margin-bottom:7px;color:var(--muted)}.review-check{border:1px solid #5b8278;background:var(--inset);border-radius:11px;padding:14px;margin-top:17px;font-size:13px;min-height:64px}.review-check strong{display:block;font-weight:600}.review-check small{display:block;color:var(--muted);font-size:12px;font-weight:400;margin-top:4px}.review-check:has(input:checked){background:var(--soft);border-color:var(--accent)}.review-check:has(input:disabled){border-color:var(--line);cursor:not-allowed;color:var(--muted)}.review-check input:disabled{cursor:not-allowed}.risk-count{font-size:12px;color:var(--muted);margin-top:10px}.risk-count.positive{color:var(--warn)}.sub-card{border:1px solid var(--line);border-radius:11px;background:var(--inset);padding:16px;margin-top:17px}.inline-note{border-left:3px solid var(--accent);background:var(--soft);padding:11px 13px;color:var(--ink);font-size:12px;margin-top:15px;border-radius:0 7px 7px 0}.inline-note.warning{border-left-color:var(--warn);background:var(--warn-bg);color:var(--warn)}.invalid{font-size:12px;color:var(--danger);margin-top:8px}.scan-feedback{margin-top:8px}.empty-stage{border:1px dashed var(--line);border-radius:var(--radius);padding:22px;display:flex;gap:12px;align-items:center;color:var(--muted);font-size:13px;margin-bottom:16px}.empty-stage svg{width:22px;height:22px}.handoff{border:1px solid #46675e;background:#172923;padding:16px 18px;border-radius:12px;margin-bottom:16px}.handoff-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.handoff h3{font-size:13px;color:var(--accent)}.handoff dl{display:grid;grid-template-columns:minmax(90px,.55fr) 1fr;gap:5px 10px;font-size:12px;margin:11px 0 0}.handoff dt{color:var(--muted)}.handoff dd{margin:0;overflow-wrap:anywhere}.handoff p{color:var(--muted);font-size:11px;margin-top:10px}.aside{position:sticky;top:20px;min-width:0}.result{padding:0;overflow:hidden;scroll-margin-top:20px}.result-main{padding:23px}.status-label{font-size:10px;font-weight:750;letter-spacing:1.05px;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--muted);margin-bottom:17px}.status-tag{display:flex;align-items:center;gap:6px;letter-spacing:.3px;white-space:nowrap}.status-tag svg{width:15px;height:15px}.result h2{font-size:25px;line-height:1.24;letter-spacing:-.7px;margin-bottom:0;font-weight:650}.result-body{font-size:13px;color:var(--muted);line-height:1.6;margin-top:13px}.result[data-tone=success]{border-color:#477e6e}.result[data-tone=success] .result-main{background:linear-gradient(155deg,#203a33,var(--surface) 75%)}.result[data-tone=success] .status-tag{color:var(--accent)}.result[data-tone=warning]{border-color:#897047}.result[data-tone=warning] .result-main{background:linear-gradient(155deg,#312b22,var(--surface) 75%)}.result[data-tone=warning] .status-tag{color:var(--warn)}.result[data-tone=danger]{border-color:#986069}.result[data-tone=danger] .result-main{background:linear-gradient(155deg,#35252b,var(--surface) 75%)}.result[data-tone=danger] .status-tag{color:var(--danger)}.result-section{margin-top:21px}.result-section h3{text-transform:uppercase;font-size:10px;letter-spacing:1px;color:var(--muted);margin-bottom:8px;font-weight:700}.why-text{font-size:13px;line-height:1.65;color:var(--ink)}.action-list{padding:0;margin:0;list-style:none}.action-list li{display:flex;gap:9px;font-size:13px;line-height:1.6;margin-top:9px}.action-list li:before{content:'→';color:var(--accent);font-weight:700;flex:none}.safeguard{font-size:12px;padding:11px 12px;background:var(--warn-bg);border:1px solid #76603f;color:var(--warn);border-radius:9px;margin-top:16px;line-height:1.6}.safeguard strong{display:block;margin-bottom:3px}.result-reference{margin-top:17px;font-size:11px;color:var(--muted)}.trace{border-top:1px solid var(--line);padding:14px 23px;font-size:12px}.trace summary{color:var(--muted)}.trace ol{margin:13px 0 0;padding-left:18px;color:var(--muted);font-size:12px;line-height:1.6}.trace li{padding:3px 0}.trace .detail-body{font-size:12px;color:var(--muted);margin-top:12px}.result-actions{border-top:1px solid var(--line);padding:14px 20px;display:flex;gap:8px}.result-actions .btn{flex:1}.continue-stage{width:100%;margin-top:16px;font-size:12px}.prep{padding:18px 20px;background:var(--surface)}.prep-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}.prep-head h3{font-size:13px}.prep-head small{font-size:10px;color:var(--muted)}.prep-times{display:grid;grid-template-columns:1fr 1fr;gap:12px}.prep-time{display:flex;flex-direction:column;gap:3px;padding:0 0 0 12px;border-left:2px solid #577b70}.prep-time strong{font-size:24px;line-height:1.25;font-weight:650;letter-spacing:-.5px;color:var(--accent)}.prep-time span{font-size:12px;color:var(--muted);line-height:1.5}.prep p{font-size:12px;color:var(--muted);margin-top:13px}.prep details{margin-top:13px}details summary{cursor:pointer;font-size:12px;color:var(--accent);min-height:36px;display:list-item;align-content:center;padding:4px 0}details summary::marker{font-size:10px}details p{font-size:12px;margin-top:10px;line-height:1.6;color:var(--muted)}.medical-details{border:1px solid var(--line);border-radius:10px;padding:8px 13px;margin-top:13px}.medical-details strong{color:var(--ink)}.medical-details .caution-copy{color:var(--warn)}.privacy-line{display:flex;align-items:flex-start;gap:7px;font-size:11px;color:var(--muted);padding:0 3px 8px}.privacy-line svg{width:14px;height:14px;margin-top:2px}.footer{display:flex;justify-content:space-between;gap:20px;align-items:center;border-top:1px solid var(--line);padding:19px 0 24px;margin-top:10px;font-size:11px;color:var(--muted)}.footer button{font-size:11px}.footer .footer-meta{display:flex;gap:10px;flex-wrap:wrap}.mobile-result{display:none}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:50;background:var(--ink);color:var(--bg);border-radius:11px;padding:12px 18px;box-shadow:0 8px 30px #0005;font-size:13px;max-width:min(90vw,560px);width:max-content}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.print-only{display:none}.nojs,.fatal{margin:24px;padding:18px;border:1px solid var(--danger);border-radius:12px;color:var(--danger);background:var(--danger-bg)}.fatal .btn{margin-top:13px}dialog{color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:0;max-width:680px;width:calc(100% - 30px);max-height:88dvh;box-shadow:0 20px 100px #0007}dialog::backdrop{background:#000a;backdrop-filter:blur(4px)}.dialog-inner{padding:25px}.dialog-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:18px}.dialog-head h2{font-size:20px}.dialog-head p{font-size:12px;color:var(--muted);margin-top:5px}.dialog-inner>p{font-size:13px;color:var(--muted);margin:13px 0;line-height:1.7}.dialog-inner h3{margin-top:22px;margin-bottom:10px}.dialog-inner ul{font-size:12px;color:var(--muted);padding-left:19px}.dialog-inner li{margin:10px 0;line-height:1.7}.source-links{display:flex;flex-wrap:wrap;gap:9px;margin:17px 0}textarea{width:100%;min-height:310px;resize:vertical;border:1px solid var(--line);border-radius:10px;background:var(--inset);color:var(--ink);padding:13px;font-size:12px;line-height:1.6}.skip-link{position:fixed;top:-100px;left:16px;z-index:80;background:var(--accent);color:var(--accent-ink);padding:12px 16px;border-radius:8px}.skip-link:focus{top:10px}.scan-feedback:empty{display:none}
+@media(min-width:960px){.context-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.context-grid .question+.question{margin-top:0}.context-grid legend{font-size:13px;min-height:40px;margin-bottom:8px}.context-grid .choice span{font-size:12px;padding:9px 6px}.context-grid .choice{min-width:48px}.context-grid .choices{gap:6px}.context-grid .hint{grid-column:1 / -1;margin:0}}
+@media(max-width:959px){.wrap{padding:0 18px}.workspace{grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);gap:18px}.top-inner{min-height:84px}.top-actions{gap:3px}.top-actions .btn{padding:9px 11px}.risk-grid{grid-template-columns:1fr}.brand-sub{font-size:11px}.result h2{font-size:23px}.card{padding:20px}.result-main{padding:20px}.top-actions .action-text{display:none}.top-actions .lang-btn span{display:inline}.version{display:none}}
+@media(max-width:740px){html{scroll-padding-top:20px}.wrap{padding:0 16px}.workspace{grid-template-columns:1fr;gap:4px}.page-main{padding-top:18px}.top-inner{min-height:79px;gap:9px}.brand{gap:9px}.brand-icon{width:35px;height:35px;border-radius:10px}.brand-icon svg{width:22px;height:22px}h1{font-size:17px;letter-spacing:-.5px}.brand-sub{font-size:10px}.top-actions{gap:1px}.top-actions .btn{padding:8px;min-width:40px}.top-actions .lang-btn{min-width:52px;font-size:12px;gap:5px}.lang-btn svg{display:none}.top-actions .btn svg{width:18px;height:18px}.mode-switch{margin-bottom:14px}.mode-switch button{font-size:13px;min-height:46px;padding:12px 7px;gap:6px}.notice{font-size:11px;padding-bottom:17px}.card{padding:20px 18px}.card-head{margin-bottom:18px}.card-head h2{font-size:17px}.risk-grid{grid-template-columns:1fr 1fr;gap:10px}.aside{position:static}.result{padding:0;scroll-margin-top:16px}.result-main{padding:22px}.result h2{font-size:25px}.mobile-result{display:flex;position:fixed;z-index:30;bottom:0;left:0;right:0;background:#1e262ff7;border:0;border-top:1px solid var(--line);backdrop-filter:blur(12px);padding:12px 18px calc(12px + env(safe-area-inset-bottom));align-items:center;justify-content:space-between;gap:12px;color:var(--ink);text-align:left;width:100%;min-height:70px}.mobile-result .mobile-copy{min-width:0}.mobile-result small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.9px;color:var(--muted);margin-bottom:3px}.mobile-result strong{display:block;font-size:12px;font-weight:550;line-height:1.35;max-width:57vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mobile-result .mobile-link{flex:none;display:flex;align-items:center;gap:6px;font-weight:650;color:var(--accent);font-size:12px}.mobile-result[data-tone=warning] strong{color:var(--warn)}.mobile-result[data-tone=danger] strong{color:var(--danger)}.mobile-result[data-tone=success] strong{color:var(--accent)}.footer{margin-bottom:79px;flex-direction:column;align-items:flex-start;gap:4px;font-size:11px}.toast{bottom:95px}.handoff dl{grid-template-columns:90px 1fr}.dialog-inner{padding:21px}.source-links .btn{font-size:12px}.prep{padding:20px}.privacy-line{margin-top:3px;margin-bottom:12px}}
+@media(max-width:450px){.risk-grid{grid-template-columns:1fr}.risk-group{padding:13px}.check{font-size:13px}.card-head{gap:10px}.choices.wrap-choices .choice{flex-basis:calc(50% - 8px)}.num-row{grid-template-columns:1fr}.top-inner{flex-wrap:nowrap}.brand-icon{display:none}.top-actions .btn{min-width:38px;padding:8px}.brand-sub{letter-spacing:0}.mode-switch svg{width:17px;height:17px}.mode-switch button{font-size:12px}.hint{font-size:11px}.review-check small{font-size:11px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+@media print{:root{color-scheme:only light!important;background:#fff!important}html,body{background:#fff!important;color:#000!important;color-scheme:light!important}#app,dialog,.toast,.mobile-result,.skip-link,.nojs,.fatal,#announcer{display:none!important}.print-only{display:block!important;color:#000;background:#fff;padding:0;font-family:Arial,sans-serif}.print-only h1{font-size:18pt;letter-spacing:0;margin:0 0 8pt}.print-only .print-meta{font-size:9pt;color:#444;margin-bottom:15pt}.print-only pre{white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;font-family:Arial,sans-serif;font-size:10pt;line-height:1.5;color:#000}.print-only h1,.print-only p{break-after:avoid}a{color:#000}@page{size:A4;margin:18mm;background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<a class="skip-link" id="skip-link" href="#main-content">Ir para a avaliação</a>
+<noscript><div class="nojs">Este aplicativo requer JavaScript. Nenhuma decisão pode ser calculada com JavaScript desativado. / This app requires JavaScript. No decision can be calculated with JavaScript disabled.</div></noscript>
+<div id="app"></div>
+<div id="fatal" class="fatal" role="alert" hidden></div>
+<div id="toast" class="toast" role="status" hidden></div>
+<div id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<dialog id="infoDialog" aria-labelledby="dialogTitle"></dialog>
+<section class="print-only" id="printArea"></section>
+<!-- Pure source-mapped engine: no DOM, persistence, scheduling, or networking. -->
+<script id="decision-engine">
+'use strict';
+(function(root){
+  const VERSION = '1.0.0';
+  const SOURCE_DATE = '2026-05-15';
+  const THRESHOLD = 1.5;
+  const DRUG_CLASS = Object.freeze({semaglutide_sc:'long',semaglutide_po:'long',dulaglutide:'long',tirzepatide:'long',liraglutide:'short',lixisenatide:'short'});
+  const emptyScan = () => ({content:'',grade:'',unit:'indexed',volume:'',weight:''});
+  const initialState = () => ({mode:'plan',elective:'',exposure:'',plan:{therapy:'',drug:'',protocol:'',risks:[],reviewed:false,stable:''},day:{pocus:'',prep:'',medication:'',scan:emptyScan(),canDelay:'',repeated:'',repeat:emptyScan()}});
+  // Comma OR period accepted as the decimal separator. Grouping, exponent notation,
+  // mixed separators, negatives, Infinity, and partial parses are rejected.
+  function number(raw){
+    const value=String(raw??'').trim();
+    if(!/^(?:\d+(?:[.,]\d+)?|[.,]\d+)$/.test(value))return null;
+    const n=Number(value.replace(',','.'));
+    return Number.isFinite(n)&&n>=0?n:null;
+  }
+  function classify(scan){
+    if(!scan||!scan.content)return {kind:'pending'};
+    if(scan.content==='solid')return {kind:'high',why:'solid'};
+    if(scan.content==='empty')return {kind:'low',why:'empty'};
+    if(scan.content==='uncertain')return {kind:'indeterminate'};
+    if(scan.content!=='liquid')return {kind:'invalid'};
+    if(!String(scan.volume??'').trim())return {kind:'pending'};
+    const entered=number(scan.volume);
+    if(entered===null)return {kind:'invalid'};
+    let volume=entered;
+    if(scan.unit==='absolute'){
+      if(!String(scan.weight??'').trim())return {kind:'pending'};
+      const weight=number(scan.weight);
+      if(weight===null||weight<=0)return {kind:'invalid'};
+      volume=entered/weight;
+    }else if(scan.unit!=='indexed')return {kind:'invalid'};
+    if(!Number.isFinite(volume))return {kind:'invalid'};
+    // No rounding before comparison. 1.50 is low by the figure, 1.5001 is high.
+    if(volume>THRESHOLD)return {kind:'high',why:'volume',volume};
+    // Figure requires BOTH Perlas 0–1 and <=1.5 mL/kg with no solids.
+    // A low numerical estimate with grade 2 is not silently relabelled low risk.
+    if(scan.grade==='2')return {kind:'discordant',volume};
+    if(scan.grade==='1')return {kind:'low',why:'liquid',volume};
+    if(scan.grade==='unknown')return {kind:'indeterminate',volume};
+    if(!scan.grade)return {kind:'pending',volume};
+    return {kind:'invalid'};
+  }
+  function evaluate(s){
+    const path=[];
+    const out=(code,extra={})=>({code,path:[...path],...extra});
+    if(!s.elective)return out('scope_pending');
+    if(s.elective==='no')return out('outside');
+    if(s.elective!=='yes')return out('scope_unknown');
+    path.push('elective');
+    if(!s.exposure)return out('exposure_pending');
+    if(s.exposure==='no')return out('not_exposed');
+    if(s.exposure!=='yes')return out('exposure_unknown');
+    path.push('exposed');
+    if(s.mode==='plan'){
+      const p=s.plan;
+      if(!p.therapy)return out('therapy_pending');
+      if(p.therapy==='stopped')return out('therapy_stopped');
+      if(p.therapy!=='on')return out('therapy_unknown');
+      if(!p.drug)return out('drug_pending');
+      const drugClass=DRUG_CLASS[p.drug];
+      if(!drugClass)return out('drug_unknown');
+      if(!p.protocol)return out('protocol_pending');
+      if(!['yes','no'].includes(p.protocol))return out('protocol_unknown');
+      path.push(p.protocol==='yes'?'protocol_yes':'protocol_no');
+      const hasRisk=p.risks.length>0 || p.stable==='no';
+      if(hasRisk)path.push('risk_present');
+      // Figure skips screening when no ultrasound pathway exists. We ask it also for
+      // short-acting drugs, to detect the unresolved conflict with item 5 on page 4.
+      if(p.protocol==='no'&&drugClass==='long')return out('hold7',{drugClass});
+      if(!hasRisk&&!p.reviewed)return out('risk_pending');
+      if(p.protocol==='no'){
+        if(hasRisk)return out('short_conflict',{drugClass});
+        path.push('risks_absent');return out('hold1',{drugClass});
+      }
+      if(hasRisk)return out(drugClass==='short'?'short_conflict':'hold7',{drugClass});
+      path.push('risks_absent');
+      if(!p.stable)return out('stable_pending');
+      if(p.stable!=='yes')return out('stable_unknown');
+      path.push('stable');return out('continue',{drugClass});
+    }
+    if(s.mode!=='day')return out('scope_unknown');
+    const d=s.day;
+    if(!d.pocus)return out('pocus_pending');
+    if(!['yes','no'].includes(d.pocus))return out('pocus_unknown');
+    if(d.pocus==='no'){
+      path.push('pocus_no');
+      if(!d.prep)return out('prep_pending');
+      if(d.prep==='no'){path.push('prep_no');return out('postpone_prep');}
+      if(d.prep!=='yes')return out('prep_unknown');
+      path.push('prep_yes');
+      // Explicit SOFTWARE safeguard: page 9 does not resolve unexpected loss of
+      // POCUS after continuation / an unfulfilled withholding plan. Item 3.3 matters.
+      if(!d.medication)return out('medication_pending');
+      if(d.medication!=='held')return out('medication_review');
+      path.push('hold_confirmed');return out('caution_no_scan');
+    }
+    path.push('pocus_yes');
+    const first=classify(d.scan);
+    if(first.kind==='pending')return out('scan_pending',{scan:first});
+    if(first.kind==='invalid')return out('scan_invalid',{scan:first});
+    if(first.kind==='indeterminate')return out('scan_indeterminate',{scan:first});
+    if(first.kind==='discordant')return out('scan_discordant',{scan:first});
+    if(first.kind==='low'){path.push('first_low');return out('proceed',{scan:first});}
+    path.push(first.why==='solid'?'first_solid':'first_high_volume');
+    if(!d.canDelay)return out('delay_pending',{scan:first});
+    if(d.canDelay==='yes'){path.push('delay_yes');return out('postpone_high',{scan:first});}
+    if(d.canDelay!=='no')return out('delay_unknown',{scan:first});
+    path.push('delay_no');
+    if(d.repeated!=='yes')return out('prokinetic',{scan:first});
+    const repeat=classify(d.repeat);
+    if(repeat.kind==='pending')return out('repeat_pending',{scan:first,repeat});
+    if(repeat.kind==='invalid')return out('repeat_invalid',{scan:first,repeat});
+    if(['indeterminate','discordant'].includes(repeat.kind))return out('repeat_uncertain',{scan:first,repeat});
+    if(repeat.kind==='low'){path.push('repeat_low');return out('caution_repeat',{scan:first,repeat});}
+    path.push('repeat_high');return out('full_stomach',{scan:first,repeat});
+  }
+  // Immutable update. Clear dependent answers when an upstream finding changes.
+  function transition(state,key,value){
+    const s=JSON.parse(JSON.stringify(state));
+    if(key==='mode'){s.mode=value;return s;}
+    if(key==='elective'||key==='exposure'){
+      if(s[key]===value)return s;
+      const fresh=initialState();fresh.mode=s.mode;fresh.elective=s.elective;fresh.exposure=s.exposure;fresh[key]=value;return fresh;
+    }
+    if(key.startsWith('risk:')){
+      // Planning edits invalidate on-the-day confirmations, not just their display.
+      // These are two different clinical moments; the plan never fills today's answers.
+      s.day=initialState().day;
+      const risk=key.slice(5);s.plan.risks=value?[...new Set([...s.plan.risks,risk])]:s.plan.risks.filter(x=>x!==risk);
+      s.plan.reviewed=false;s.plan.stable='';return s;
+    }
+    if(key.startsWith('plan.')){
+      const field=key.split('.')[1];
+      if(s.plan[field]===value)return s;
+      // The combined negative review includes stability and absence of symptoms.
+      // A positive risk cannot be erased by activating the 'none' control.
+      if(field==='reviewed'&&value&&s.plan.risks.length)return s;
+      s.day=initialState().day;
+      s.plan[field]=value;
+      if(field==='reviewed')s.plan.stable=value?'yes':'';
+      if(field==='therapy'&&value!=='on'){s.plan.drug='';s.plan.protocol='';s.plan.risks=[];s.plan.reviewed=false;s.plan.stable='';}
+      if(field==='protocol'){s.plan.risks=[];s.plan.reviewed=false;s.plan.stable='';}
+      if(field==='reviewed'&&!value)s.plan.stable='';
+      return s;
+    }
+    const parts=key.split('.');
+    if(parts[0]!=='day')return s;
+    if(parts.length===3){
+      const which=parts[1],field=parts[2];if(s.day[which][field]===value)return s;s.day[which][field]=value;
+      if(field==='content')s.day[which]={...emptyScan(),content:value};
+      if(field==='unit'){s.day[which].volume='';s.day[which].weight='';}
+      if(which==='scan'){s.day.canDelay='';s.day.repeated='';s.day.repeat=emptyScan();}
+      return s;
+    }
+    const field=parts[1];
+    if(s.day[field]===value)return s;
+    if(field==='pocus'){s.day=initialState().day;s.day.pocus=value;return s;}
+    s.day[field]=value;
+    if(field==='prep')s.day.medication='';
+    if(field==='canDelay'){s.day.repeated='';s.day.repeat=emptyScan();}
+    if(field==='repeated')s.day.repeat=emptyScan();
+    return s;
+  }
+  root.GLP1Engine=Object.freeze({VERSION,SOURCE_DATE,THRESHOLD,DRUG_CLASS,initialState,emptyScan,number,classify,evaluate,transition});
+})(globalThis);
+</script>
+<script id="app-ui">
+'use strict';
+(function(){
+const E=GLP1Engine;
+const SOURCE='https://www.sbahq.org/wp-content/uploads/2026/05/C1744_26.pdf';
+const SOURCE_PAGE='https://www.sbahq.org/nota-da-sba-de-atualizacao-sobre-as-recomendacoes-do-manejo-perioperatorio-dos-agonistas-do-receptor-glp-1-e-coagonistas-glp-1-gip/';
+let lang='pt';try{if(localStorage.getItem('glp1-ui-language')==='en')lang='en';}catch(_){/* Language storage is optional. Clinical answers are never persisted. */}
+let state=E.initialState(),lastCode='',toastTimer,dialogFocus=null;
+const $=id=>document.getElementById(id);
+const t=(pt,en)=>lang==='pt'?pt:en;
+const pair=a=>a[lang==='pt'?0:1];
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const idFor=k=>k.replace(/[^a-zA-Z0-9_-]/g,'-');
+
+const icon=(name)=>{
+ const shapes={branch:'<path d="M6 3v11a4 4 0 0 0 4 4h8M6 8h8a4 4 0 0 1 4 4v6"/><circle cx="6" cy="3" r="1.5"/><circle cx="18" cy="18" r="1.5"/><path d="m15 15 3 3 3-3"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-13 4h3"/>',scan:'<path d="M6 3h12l1 7-5 4v6h-4v-6l-5-4 1-7Z"/><path d="M8 7h8m-7 3h6"/>',book:'<path d="M12 5C8 2 5 3 3 4v16c3-1 6-1 9 1 3-2 6-2 9-1V4c-2-1-5-2-9 1Zm0 0v16"/>',reset:'<path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/>',globe:'<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/>',shield:'<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="M12 8v5m0 3h.01"/>',arrow:'<path d="M4 12h16m-6-6 6 6-6 6"/>',copy:'<rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V3H3v13h5"/>',print:'<path d="M7 8V3h10v5M7 16H3V8h18v8h-4M7 13h10v8H7V13Zm10-2h1"/>',x:'<path d="m6 6 12 12M6 18 18 6"/>',pill:'<path d="m9 4-5 5a6 6 0 0 0 8 8l5-5a6 6 0 0 0-8-8ZM7 6l11 11"/>',person:'<circle cx="12" cy="6" r="3"/><path d="M5 21v-4a7 7 0 0 1 14 0v4"/>',air:'<path d="M12 3v9M8 8c-4 1-6 5-6 10 0 3 7 2 7-1v-6m7-3c4 1 6 5 6 10 0 3-7 2-7-1v-6M9 12l3-2 3 2"/>',layers:'<path d="m12 3 10 5-10 5L2 8l10-5Zm-9 9 9 5 9-5M3 17l9 5 9-5"/>',check:'<path d="m5 12 4 4L19 6"/>',lock:'<rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/>'};
+ return `<svg viewBox="0 0 24 24" aria-hidden="true">${shapes[name]||shapes.arrow}</svg>`;
+};
+const RISK_GROUPS=[
+ {title:['Medicação GLP-1','GLP-1 therapy'],icon:'pill',items:[
+  ['recent','Uso há menos de 12 semanas','Treatment for less than 12 weeks'],
+  ['escalation','Escalonamento da dose nos últimos 3 meses','Dose escalation in the past 3 months'],
+  ['irregular','Uso irregular ou instabilidade terapêutica','Irregular use or unstable treatment']]},
+ {title:['Paciente','Patient'],icon:'person',items:[
+  ['gi','Sintomas gastrointestinais: náuseas, vômitos, refluxo, plenitude ou dispepsia','GI symptoms: nausea, vomiting, reflux, fullness or dyspepsia'],
+  ['glycemic','HbA1c > 8% ou controle glicêmico inadequado','HbA1c > 8% or inadequate glycemic control'],
+  ['diabetes','Diabetes > 8 anos ou gastroparesia conhecida','Diabetes > 8 years or known gastroparesis'],
+  ['surgery','Cirurgia gastrointestinal prévia, incluindo bariátrica','Previous gastrointestinal surgery, including bariatric'],
+  ['residue','Resíduo gástrico em endoscopia prévia','Gastric residue on previous upper endoscopy'],
+  ['bmi','IMC ≥ 40 kg/m²','BMI ≥ 40 kg/m²'],
+  ['swallow','Acalásia ou disfagia','Achalasia or dysphagia']]},
+ {title:['Técnica anestésica','Anesthetic technique'],icon:'air',items:[
+  ['sedation_long','Sedação prolongada (> 30 min)','Prolonged sedation (> 30 min)'],
+  ['sedation_deep','Sedação moderada/profunda sem via aérea avançada','Moderate/deep sedation without an advanced airway'],
+  ['position','Decúbito ventral, cabeça imobilizada ou sem acesso/visualização','Prone position, immobilized head, or limited airway access/view'],
+  ['airway','Via aérea difícil prevista','Anticipated difficult airway']]},
+ {title:['Medicações associadas','Concomitant medications'],icon:'layers',items:[
+  ['opioids','Uso crônico de opioides','Chronic opioid use'],
+  ['anticholinergic','Anticolinérgicos','Anticholinergics'],
+  ['tca','Antidepressivos tricíclicos','Tricyclic antidepressants'],
+  ['ccb','Bloqueadores dos canais de cálcio','Calcium-channel blockers']]}
+];
+const EXTRA_RISKS=[['obstruction','Obstrução gastrointestinal suspeita ou documentada','Suspected or documented gastrointestinal obstruction'],['neurologic','Doença neurológica limitante, especialmente em idosos','Limiting neurological disease, especially in older patients'],['other_airway','Outra situação que prejudique a proteção da via aérea','Another condition impairing airway protection']];
+const ALL_RISKS=RISK_GROUPS.flatMap(g=>g.items).concat(EXTRA_RISKS);
+const DRUGS=[['semaglutide_sc','Semaglutida subcutânea','Subcutaneous semaglutide'],['semaglutide_po','Semaglutida oral','Oral semaglutide'],['dulaglutide','Dulaglutida','Dulaglutide'],['tirzepatide','Tirzepatida','Tirzepatide'],['liraglutide','Liraglutida','Liraglutide'],['lixisenatide','Lixisenatida','Lixisenatide'],['other','Outro / não identificado','Other / not identified']];
+const ACTIONS={
+ plan:[['Planejar em conjunto com Anestesiologia, Cirurgia e Endocrinologia; considerar TCLE específico.','Plan jointly with Anesthesiology, Surgery and Endocrinology; consider specific informed consent.'],['Orientar o preparo e reavaliar no dia da cirurgia. Suspensão não substitui POCUS quando disponível.','Provide preparation instructions and reassess on the day. Withholding does not replace POCUS when available.']],
+ hold:[['Envolver Endocrinologia no ajuste antidiabético e na prevenção de hiperglicemia.','Involve Endocrinology in antidiabetic adjustment and hyperglycemia prevention.'],['Associar o preparo de 24 h e jejum de 8–12 h; realizar POCUS no dia, sempre que disponível.','Combine the 24-hour preparation and 8–12-hour fast; perform POCUS on the day whenever available.']],
+ caution:[['Considerar ISR se houver suspeita clínica de risco residual.','Consider rapid-sequence intubation (RSI) if residual risk is clinically suspected.'],['Avaliar uma técnica que proteja a via aérea.','Evaluate a technique that protects the airway.'],['Manter vigilância para regurgitação, inclusive na recuperação pós-anestésica.','Maintain vigilance for regurgitation, including in post-anesthesia recovery.']],
+ full:[['Intubação em sequência rápida (ISR), com manobra de Sellick.','Rapid-sequence intubation (RSI), with the Sellick maneuver.'],['Aspiração gástrica via sonda nasogástrica após a indução.','Gastric aspiration through a nasogastric tube after induction.'],['Tubo traqueal, não máscara laríngea; cabeceira elevada.','Tracheal tube, not a laryngeal mask; head-up positioning.'],['Extubação acordado, preferencialmente em decúbito lateral.','Awake extubation, preferably in the lateral position.'],['Reavaliar a possibilidade de adiamento.','Reassess the possibility of postponement.']]
+};
+// Each outcome has visible source provenance. "guard" marks application behavior,
+// not a recommendation newly attributed to the SBA.
+const C=(title,body,tone='neutral',pages=[8],actions=[],guard=false)=>({title,body,tone,pages,actions,guard});
+const COPY={
+ scope_pending:C(['Comece pelo contexto','Start with the context'],['Informe se o procedimento é eletivo. As respostas aparecem aqui, com o caminho percorrido no fluxograma.','Indicate whether the procedure is elective. The result and its path through the flowchart will appear here.']),
+ scope_unknown:C(['Definir o contexto cirúrgico','Clarify the surgical context'],['Sem confirmar o caráter eletivo, o aplicativo não aplica este fluxo.','The app will not apply this pathway without confirmation that the procedure is elective.'],'warning',[8],[],true),
+ outside:C(['Fora do escopo deste fluxo','Outside this pathway’s scope'],['As páginas 8–9 partem de cirurgia eletiva. Este aplicativo não decide condutas de urgência ou emergência. Avaliação individual pelo anestesiologista.','Pages 8–9 start with elective surgery. This application does not determine urgent or emergency management. Individual anesthesiologist assessment is required.'],'warning',[8],[],true),
+ exposure_pending:C(['Confirmar uso nos últimos 6 meses','Confirm use within the past 6 months'],['Inclua agonistas de GLP-1 e coagonistas GLP-1/GIP, mesmo quando o tratamento já foi interrompido.','Include GLP-1 agonists and GLP-1/GIP co-agonists, even if treatment has already been discontinued.']),
+ exposure_unknown:C(['História medicamentosa pendente','Medication history unresolved'],['Confirme a exposição antes de seguir. Uma resposta desconhecida não equivale à ausência de uso.','Confirm exposure before continuing. An unknown answer does not mean no use.'],'warning',[8],[],true),
+ not_exposed:C(['Fora do ramo específico de GLP-1','Outside the GLP-1-specific branch'],['A seta “Não” da página 8 conduz a agendar a cirurgia. Seguir a avaliação pré-anestésica e o protocolo de jejum habituais; não é uma declaração de ausência de outros riscos.','The “No” arrow on page 8 leads to scheduling surgery. Follow usual pre-anesthetic assessment and fasting protocols; this does not imply absence of other risks.'],'neutral',[8]),
+ therapy_pending:C(['Confirmar a situação do tratamento','Confirm treatment status'],['Diferencie tratamento em curso de uso já descontinuado.','Distinguish ongoing treatment from treatment already discontinued.']),
+ therapy_unknown:C(['Esclarecer a situação do tratamento','Clarify treatment status'],['Confirme a medicação e a história de uso antes de definir manutenção ou suspensão.','Confirm the medication and its use history before deciding continuation or withholding.'],'warning',[8],[],true),
+ therapy_stopped:C(['Uso descontinuado: individualizar','Discontinued treatment: individualize'],['O item 6.3 não define após quantos dias da suspensão a dieta líquida deixa de oferecer proteção adicional. Não reiniciar nem emitir um novo prazo de suspensão automaticamente. Definir o preparo pelo protocolo institucional.','Item 6.3 does not establish how long after discontinuation the liquid diet ceases to provide additional protection. Do not automatically restart treatment or issue a new withholding interval. Individualize preparation under the institutional protocol.'],'warning',[4,8],[],true),
+ drug_pending:C(['Identificar o medicamento','Identify the medication'],['O prazo, quando indicado, depende da classificação de curta ou longa ação usada na página 8.','When withholding is indicated, its interval depends on the short-/long-acting classification used on page 8.']),
+ drug_unknown:C(['Medicamento não mapeado','Medication not mapped'],['O aplicativo só classifica os medicamentos nomeados na figura. Confirme o fármaco e o protocolo institucional; não inferir a duração da ação pela frequência de administração.','The app classifies only medications named in the figure. Confirm the drug and institutional protocol; do not infer action duration from dosing frequency.'],'warning',[8],[],true),
+ protocol_pending:C(['Confirmar a estrutura para POCUS','Confirm the POCUS pathway'],['O primeiro passo é verificar se há protocolo institucional para avaliação gástrica no dia da cirurgia.','The first step is to check for an institutional pathway for gastric assessment on the day of surgery.']),
+ protocol_unknown:C(['Disponibilidade ainda não confirmada','Availability not yet confirmed'],['Não assumir que a medicação pode ser mantida enquanto o protocolo e a avaliação gástrica no dia não estiverem confirmados.','Do not assume the medication can be continued while the protocol and on-the-day gastric assessment remain unconfirmed.'],'warning',[3,8],[],true),
+ risk_pending:C(['Revisar os fatores de risco','Review risk factors'],['Marque os fatores presentes e confirme a revisão. Caixas desmarcadas, sem confirmação, não são interpretadas como ausência de risco.','Select present factors and confirm the review. Unchecked boxes without confirmation are not interpreted as absence of risk.'],'neutral',[8],[],true),
+ stable_pending:C(['Confirmar estabilidade e sintomas','Confirm stability and symptoms'],['O ramo de manutenção exige ausência de fatores de risco, uso estável por ≥ 12 semanas e ausência de sintomas.','The continuation branch requires no risk factors, stable use for ≥ 12 weeks, and no symptoms.']),
+ stable_unknown:C(['Estabilidade não confirmada','Stability not confirmed'],['Sem essa informação, o aplicativo não seleciona o ramo de manutenção.','Without this information, the app does not select the continuation branch.'],'warning',[8],[],true),
+ continue:C(['Manter a dose habitual','Continue the usual dose'],['Ramo da página 8: protocolo de POCUS disponível, sem fatores de risco, uso estável ≥ 12 semanas e paciente assintomático. Isto é planejamento; a decisão no dia depende da reavaliação.','Page 8 branch: a POCUS pathway is available, no risk factors, stable use ≥ 12 weeks and no symptoms. This is advance planning; the day-of-procedure decision depends on reassessment.'],'success',[8,3],ACTIONS.plan),
+ hold7:C(['Suspensão: 7 dias','Withhold: 7 days'],['O fluxograma indica 7 dias para o medicamento de longa ação selecionado. Em alto risco, o item 5 emprega “pelo menos 7 dias”; confirmar o intervalo final no plano individual.','The flowchart indicates 7 days for the selected long-acting medication. In high-risk patients, item 5 uses “at least 7 days”; confirm the final interval in the individual plan.'],'warning',[8,4],ACTIONS.hold),
+ hold1:C(['Suspensão: 1 dia','Withhold: 1 day'],['Ramo sem protocolo de POCUS: a figura indica 1 dia para curta ação. Nenhum fator de risco foi identificado na revisão informada.','Without a POCUS pathway, the figure indicates 1 day for short-acting drugs. No risk factor was identified in the reported review.'],'warning',[8,3],ACTIONS.hold),
+ short_conflict:C(['Prazo de suspensão: confirmar','Confirm the withholding interval'],['Há uma divergência no documento: a página 8 indica 1 dia para curta ação, mas o item 5 (p. 4) indica pelo menos 7 dias em alto risco, sem distinguir duração. O aplicativo não escolhe entre os dois.','The document is inconsistent: page 8 specifies 1 day for short-acting drugs, but item 5 (p. 4) specifies at least 7 days in high-risk patients without distinguishing duration. The app does not choose between them.'],'warning',[8,4],[['Definir o prazo com a equipe e o protocolo institucional antes de orientar o paciente.','Define the interval with the team and institutional protocol before instructing the patient.'],...ACTIONS.hold],true),
+ pocus_pending:C(['Há POCUS disponível hoje?','Is POCUS available today?'],['A disponibilidade no dia da cirurgia define o próximo ramo. Não é a mesma pergunta sobre a estrutura prevista no pré-operatório.','Availability on the day determines the next branch. This is different from the planned institutional capability.'],'neutral',[9]),
+ pocus_unknown:C(['Confirmar a disponibilidade hoje','Confirm today’s availability'],['A disponibilidade desconhecida não permite presumir exame de baixo risco nem preparo adequado.','Unknown availability does not establish a low-risk scan or adequate preparation.'],'warning',[9],[],true),
+ prep_pending:C(['Confirmar o preparo completo','Confirm complete preparation'],['Sem POCUS, a página 9 pergunta se foram cumpridos rigorosamente a dieta líquida de 24 h e o jejum de 8–12 h.','Without POCUS, page 9 asks whether the 24-hour liquid diet and 8–12-hour fast were rigorously followed.'],'neutral',[9]),
+ prep_unknown:C(['Preparo não confirmado','Preparation not confirmed'],['Não selecionar o ramo “preparo cumprido” enquanto a dieta e o jejum não estiverem confirmados. Avaliação pelo anestesiologista.','Do not select the “preparation completed” branch while diet and fasting adherence remain unconfirmed. Anesthesiologist assessment is required.'],'warning',[9],[],true),
+ postpone_prep:C(['Adiar a cirurgia eletiva','Postpone elective surgery'],['Sem POCUS e com preparo não cumprido, o fluxograma indica adiar e reagendar com o preparo adequado.','Without POCUS and with preparation not completed, the flowchart indicates postponement and rescheduling with adequate preparation.'],'danger',[9]),
+ medication_pending:C(['Confirmar o plano medicamentoso','Confirm the medication plan'],['A página 9 aponta para cautela quando o preparo foi cumprido. Antes de mostrar esse ramo, o app verifica se houve suspensão planejada cumprida, pois o item 3.3 condiciona a manutenção à possibilidade de POCUS.','Page 9 points to caution when preparation was completed. Before showing that branch, the app checks that planned withholding was completed, because item 3.3 ties continuation to POCUS capability.'],'warning',[9,3],[],true),
+ medication_review:C(['Reavaliar antes de prosseguir','Reassess before proceeding'],['Preparo adequado, mas sem POCUS e sem suspensão planejada confirmada. A página 9 não detalha essa combinação; o item 3.3 desaconselha manutenção quando não é possível realizar POCUS. Não há liberação automática.','Preparation is adequate, but POCUS is unavailable and planned withholding is not confirmed. Page 9 does not detail this combination; item 3.3 advises against continuation when POCUS cannot be performed. There is no automatic clearance.'],'warning',[9,3],[['O ramo geral da p. 9 é “prosseguir com cautela”; a aplicação a este cenário exige decisão explícita do anestesiologista.','The general branch on p. 9 is “proceed with caution”; applying it to this scenario requires an explicit anesthesiologist decision.']],true),
+ caution_no_scan:C(['Prosseguir com cautela','Proceed with caution'],['Ramo sem POCUS, com dieta e jejum rigorosamente cumpridos. O plano de suspensão também foi confirmado. Isso não comprova estômago vazio.','Branch without POCUS, with diet and fasting rigorously completed. Planned withholding was also confirmed. This does not establish an empty stomach.'],'warning',[9,3],ACTIONS.caution),
+ scan_pending:C(['Completar a avaliação gástrica','Complete gastric assessment'],['Informe o achado do POCUS. Para líquido, complete o volume e o grau de Perlas; o app não calcula volume pela área do antro.','Enter the POCUS finding. For fluid, complete the volume and Perlas grade; the app does not calculate volume from antral area.'],'neutral',[9]),
+ scan_invalid:C(['Corrigir os dados do POCUS','Correct the POCUS data'],['Use números válidos, sem separador de milhares. Volume não pode ser negativo e peso deve ser maior que zero. Nenhuma classificação é emitida com entrada inválida.','Use valid numbers without thousands separators. Volume must be non-negative and weight must be greater than zero. Invalid input produces no classification.'],'warning',[9],[],true),
+ scan_indeterminate:C(['POCUS inconclusivo: reavaliar','Inconclusive POCUS: reassess'],['O fluxograma não descreve um ramo para exame inconclusivo. O aplicativo não o equipara a estômago vazio nem o converte automaticamente em “sem POCUS”.','The flowchart does not specify an inconclusive-scan branch. The app does not equate it with an empty stomach or automatically convert it to “no POCUS”.'],'warning',[9],[['Reavaliar o exame e definir a conduta individualmente.','Reassess the scan and determine management individually.']],true),
+ scan_discordant:C(['Grau e volume discordantes','Discordant grade and volume'],['Foi informado grau 2 com volume ≤ 1,5 mL/kg. O ramo de baixo risco exige Perlas 0–1. Conferir aquisição, classificação e cálculo antes de prosseguir.','Grade 2 with volume ≤ 1.5 mL/kg was entered. The low-risk branch requires Perlas 0–1. Check acquisition, grading and calculation before proceeding.'],'warning',[9,3],[],true),
+ proceed:C(['Prosseguir com a técnica planejada','Proceed with the planned technique'],['O POCUS inicial atende ao ramo de baixo risco da figura: estômago vazio ou grau 1 com líquido ≤ 1,5 mL/kg, sem conteúdo sólido. Baixo risco não significa risco zero.','Initial POCUS meets the figure’s low-risk branch: empty stomach or grade 1 with fluid ≤ 1.5 mL/kg and no solids. Low risk does not mean zero risk.'],'success',[9]),
+ delay_pending:C(['Alto risco: é possível adiar?','High risk: can surgery be postponed?'],['Há volume > 1,5 mL/kg ou conteúdo sólido/particulado. A próxima decisão é a possibilidade de adiamento.','There is volume > 1.5 mL/kg or solid/particulate content. The next decision concerns the possibility of postponement.'],'danger',[9]),
+ delay_unknown:C(['Definir a possibilidade de adiamento','Determine whether postponement is possible'],['O app não escolhe “prosseguir” por falta de informação. Discutir a possibilidade de adiamento com a equipe.','The app does not select “proceed” because information is missing. Discuss whether postponement is possible with the team.'],'warning',[9],[],true),
+ postpone_high:C(['Adiar e otimizar o preparo','Postpone and optimize preparation'],['POCUS de alto risco e cirurgia passível de adiamento: reagendar a cirurgia eletiva com preparo otimizado.','High-risk POCUS and surgery that can be postponed: reschedule elective surgery with optimized preparation.'],'danger',[9]),
+ prokinetic:C(['Considerar procinético e reavaliar','Consider a prokinetic and reassess'],['POCUS de alto risco e adiamento não considerado possível. A figura propõe considerar procinético EV e repetir o POCUS; não pressupõe que a intervenção esvazie o estômago.','High-risk POCUS and postponement not considered possible. The figure proposes considering an IV prokinetic and repeating POCUS; it does not assume the intervention empties the stomach.'],'warning',[9],[['Conferir contraindicações e interações antes de considerar eritromicina.','Check contraindications and interactions before considering erythromycin.'],['Registrar o resultado de um novo POCUS para continuar o fluxo.','Record the repeat POCUS result to continue through the pathway.']]),
+ repeat_pending:C(['Completar o POCUS de reavaliação','Complete repeat POCUS'],['É necessário documentar o novo achado. Não reutilizar o resultado inicial nem presumir resposta ao procinético.','Document the new finding. Do not reuse the initial result or assume a response to the prokinetic.'],'neutral',[9]),
+ repeat_invalid:C(['Corrigir a reavaliação','Correct the repeat assessment'],['Há dado numérico inválido na reavaliação. Não é possível atribuir baixo risco.','The repeat assessment contains invalid numeric data. Low risk cannot be assigned.'],'warning',[9],[],true),
+ repeat_uncertain:C(['Reavaliação não confirma baixo risco','Repeat assessment does not confirm low risk'],['POCUS repetido inconclusivo ou com grau/volume discordantes. A figura não detalha esse cenário. Não tratar como resolução do achado de alto risco inicial.','Repeat POCUS is inconclusive or has discordant grade/volume. The figure does not detail this scenario. Do not treat the initial high-risk finding as resolved.'],'warning',[9],[['Reavaliar o exame, a possibilidade de adiamento e a estratégia de proteção da via aérea.','Reassess the scan, postponement options and airway-protection strategy.']],true),
+ caution_repeat:C(['Prosseguir com cautela','Proceed with caution'],['A reavaliação mostrou baixo risco após um POCUS inicial de alto risco. A seta da página 9 leva a “prosseguir com cautela”, não diretamente à técnica inicialmente planejada.','Repeat POCUS showed low risk after an initially high-risk scan. Page 9 points to “proceed with caution”, not directly to the initially planned technique.'],'warning',[9],ACTIONS.caution),
+ full_stomach:C(['Estômago persistentemente cheio','Persistently full stomach'],['A reavaliação mantém alto risco. As medidas abaixo são as listadas no fluxograma; devem ser individualizadas pelo anestesiologista, especialmente em via aérea difícil.','Repeat assessment remains high risk. The measures below are listed in the flowchart; they require individualization by the anesthesiologist, especially with a difficult airway.'],'danger',[9,2],ACTIONS.full)
+};
+const PATH={elective:['Cirurgia eletiva','Elective surgery'],exposed:['GLP-1 / GLP-1–GIP nos últimos 6 meses','GLP-1 / GLP-1–GIP within 6 months'],protocol_yes:['Protocolo institucional de POCUS disponível','Institutional POCUS pathway available'],protocol_no:['Sem protocolo institucional de POCUS','No institutional POCUS pathway'],risk_present:['Há fator de risco ou instabilidade','Risk factor or instability present'],risks_absent:['Revisão confirmada: sem fatores assinalados','Confirmed review: no factors identified'],stable:['Uso estável ≥ 12 semanas e assintomático','Stable use ≥ 12 weeks and no symptoms'],pocus_no:['POCUS não disponível no dia','POCUS unavailable on the day'],pocus_yes:['POCUS disponível no dia','POCUS available on the day'],prep_yes:['Dieta e jejum cumpridos rigorosamente','Diet and fasting rigorously completed'],prep_no:['Preparo não cumprido rigorosamente','Preparation not rigorously completed'],hold_confirmed:['Suspensão conforme o plano confirmada','Withholding according to plan confirmed'],first_low:['POCUS inicial de baixo risco','Initial POCUS: low risk'],first_solid:['POCUS inicial com sólido/particulado','Initial POCUS: solid/particulate content'],first_high_volume:['POCUS inicial: volume > 1,5 mL/kg','Initial POCUS: volume > 1.5 mL/kg'],delay_yes:['Cirurgia pode ser adiada','Surgery can be postponed'],delay_no:['Adiamento não considerado possível','Postponement not considered possible'],repeat_low:['Novo POCUS de baixo risco','Repeat POCUS: low risk'],repeat_high:['Novo POCUS ainda de alto risco','Repeat POCUS: still high risk']};
+
+function prokineticDetails(){return `<details class="medical-details" id="prokinetic-details"><summary>${t('Eritromicina: orientação da figura (p. 9)','Erythromycin: guidance in the figure (p. 9)')}</summary><p><strong>${t('3 mg/kg EV, máximo 250 mg','3 mg/kg IV, maximum 250 mg')}</strong> ${t('em infusão lenta de 20–30 minutos; 1–2 h antes da indução. A figura também cita 15 minutos antes em “urgência absoluta”.','as a slow 20–30-minute infusion; 1–2 hours before induction. The figure also mentions 15 minutes before in “absolute urgency”.')}</p><p>${t('Conferir alergia a macrolídeos, QT longo, fármacos que prolongam QT, hepatopatia grave e interações medicamentosas (a figura cita estatinas e varfarina, entre outras).','Check macrolide allergy, prolonged QT, QT-prolonging drugs, severe liver disease and drug interactions (the figure lists statins and warfarin, among others).')}</p><p class="caution-copy">${t('Referência do documento, não prescrição automática. Este app não calcula dose, não agenda infusão e não extrapola o fluxo eletivo para urgências. A figura não resolve a compatibilidade entre a menção de 15 minutos e a duração da infusão.','Document reference, not an automatic prescription. This app does not calculate a dose, schedule an infusion or extend the elective pathway to emergencies. The figure does not resolve the relationship between its 15-minute mention and infusion duration.')}</p></details>`;}
+
+function sourceDialog(){showDialog(`<div class="dialog-inner"><header class="dialog-head"><div><h2 id="dialogTitle">${t('Fonte, adaptações e limites','Source, adaptations and limitations')}</h2><p>C.SBA-01744/2026 · 15/05/2026</p></div><button type="button" class="btn small" data-action="close-dialog" aria-label="${t('Fechar','Close')}">${icon('x')}</button></header><p>${t('Base principal: fluxograma das páginas 8–9 da nota da Sociedade Brasileira de Anestesiologia. A verificação da fonte é manual; o app não atualiza recomendações automaticamente.','Primary basis: flowchart on pages 8–9 of the Brazilian Society of Anesthesiology note. Source review is manual; the app does not update recommendations automatically.')}</p><div class="source-links"><a class="btn small" href="${SOURCE}#page=8" target="_blank" rel="noopener noreferrer">${t('Página 8','Page 8')} ↗</a><a class="btn small" href="${SOURCE}#page=9" target="_blank" rel="noopener noreferrer">${t('Página 9','Page 9')} ↗</a><a class="btn small" href="${SOURCE_PAGE}" target="_blank" rel="noopener noreferrer">${t('Publicação da SBA','SBA publication')} ↗</a></div><h3>${t('O que foi preservado','What is preserved')}</h3><p>${t('Os dois momentos, os quatro grupos de fatores da figura, os ramos de manutenção/suspensão, o preparo, o limiar de 1,5 mL/kg e a distinção entre baixo risco inicial e baixo risco após reavaliação. Sem pontuação de risco ou estimador ultrassonográfico externo.','The two stages, the figure’s four risk-factor groups, continuation/withholding branches, preparation, the 1.5 mL/kg threshold and the distinction between initially low risk and low risk after reassessment. No risk score or external ultrasound estimator.')}</p><h3>${t('Complementos do próprio documento','Additions from the same document')}</h3><p>${t('Itens 3/3.3 (p. 3): estrutura de POCUS e condição para manutenção. Item 5 (p. 4): divergência do prazo em alto risco. Item 6.3 (p. 4): individualizar após descontinuação. Itens 7–9 (pp. 5–6): fatores adicionais, identificados separadamente no formulário.','Items 3/3.3 (p. 3): POCUS capability and continuation condition. Item 5 (p. 4): high-risk interval discrepancy. Item 6.3 (p. 4): individualization after discontinuation. Items 7–9 (pp. 5–6): additional factors, separately labeled in the form.')}</p><h3>${t('Salvaguardas de software — não novas diretrizes','Software safeguards — not new guidelines')}</h3><ul><li>${t('Não inferir respostas ausentes. Exigir confirmação explícita de nenhum fator, uso estável ≥ 12 semanas e ausência de sintomas. A confirmação fica indisponível enquanto houver algum fator assinalado.','Do not infer missing answers. Require explicit confirmation of no risk factors, stable use ≥ 12 weeks and no symptoms. This confirmation is unavailable while a risk factor is selected.')}</li><li>${t('Não resolver automaticamente a divergência de 1 dia versus pelo menos 7 dias em curta ação com alto risco.','Do not automatically resolve the 1-day versus at-least-7-days discrepancy in high-risk patients on short-acting therapy.')}</li><li>${t('POCUS inconclusivo ou grau 2 com volume ≤ 1,5 mL/kg não recebe classificação automática de baixo risco. Comparações usam o valor sem arredondamento.','Inconclusive POCUS or grade 2 with volume ≤ 1.5 mL/kg is not automatically classified as low risk. Comparisons use the unrounded value.')}</li><li>${t('Sem POCUS, mas com preparo cumprido, confirmar a suspensão planejada. Medicação mantida, suspensão descumprida ou plano desconhecido levam à revisão individual, pois essa combinação não está detalhada na p. 9.','Without POCUS but with preparation completed, confirm planned withholding. Continued medication, missed withholding or an unknown plan require individual review because this combination is not detailed on p. 9.')}</li><li>${t('Mudanças em respostas anteriores apagam dados dependentes. Editar o planejamento invalida as confirmações do dia; alternar as etapas não altera os dados. O planejamento nunca preenche automaticamente as respostas do dia. Sem calculadora de dose, relógio de suspensão ou prescrição automática.','Changes to upstream answers clear dependent data. Editing the plan invalidates on-the-day confirmations; switching stages preserves data. Planning never automatically fills on-the-day answers. No dose calculator, withholding clock or automatic prescription.')}</li></ul><h3>${t('Limites para uso','Use limitations')}</h3><p>${t('Ferramenta independente de apoio profissional, sem vínculo ou endosso oficial da SBA e sem validação clínica independente documentada. O fluxo parte de cirurgia eletiva; não existe neste app protocolo de urgência, pediatria, reinício pós-operatório ou plano individual de diabetes. A proteção de via aérea permanece sujeita ao julgamento clínico.','Independent professional decision-support tool, without official SBA affiliation or endorsement and without documented independent clinical validation. The pathway starts with elective surgery; this app provides no emergency, pediatric, postoperative-restart or individualized diabetes protocol. Airway protection remains subject to clinical judgment.')}</p><p>${t('As respostas existem apenas na memória desta aba. A preferência de idioma usa localStorage. O código não envia respostas; o serviço que hospeda a página pode manter seus próprios registros de acesso. Links para a SBA abrem um site externo.','Answers exist only in this tab’s memory. Language preference uses localStorage. The code does not transmit answers; the hosting service may keep its own access logs. SBA links open an external site.')}</p><p>v${E.VERSION} · ${t('Software: 14/09/2026 · Fonte: 15/05/2026 · Revisão clínica independente: não documentada','Software: 14 September 2026 · Source: 15 May 2026 · Independent clinical review: not documented')}</p></div>`);}
+
+// A single negative review explicitly confirms all continuation prerequisites.
+// No additional stability/symptom question is displayed or inferred from blank boxes.
+const YN=()=>[['yes',t('Sim','Yes')],['no',t('Não','No')]];
+const YNU=()=>[...YN(),['unknown',t('Não sei','Unknown')]];
+const COMPLETED_PLAN=new Set(['continue','hold7','hold1','short_conflict','therapy_stopped']);
+function get(key){return key.split('.').reduce((o,k)=>o?.[k],state);}
+function format(n){return n.toLocaleString(lang==='pt'?'pt-BR':'en-US',{maximumFractionDigits:20,useGrouping:false});}
+function drugName(value){const item=DRUGS.find(a=>a[0]===value);return item?t(item[1],item[2]):t('Não informado','Not entered');}
+function hasPlan(){return !!(state.plan.therapy||state.plan.drug||state.plan.protocol||state.plan.reviewed||state.plan.risks.length);}
+function hasDay(){return !!state.day.pocus;}
+function hasAnswers(){return !!(state.elective||state.exposure||hasPlan()||hasDay());}
+function planDecision(){return E.evaluate({...state,mode:'plan'});}
+function sourceLinks(pages){return pages.map(p=>`<a href="${SOURCE}#page=${p}" target="_blank" rel="noopener noreferrer" aria-label="${t('Fonte: página','Source: page')} ${p}">p. ${p}</a>`).join(' · ');}
+function radios(key,label,options,hint=''){
+ const id=idFor(key),isWrap=options.length>3;
+ return `<fieldset class="question" id="q-${id}"><legend>${label}</legend><div class="choices${isWrap?' wrap-choices':''}">${options.map(([v,l])=>`<label class="choice" for="${id}-${v}"><input type="radio" id="${id}-${v}" name="${id}" data-field="${key}" value="${v}" ${get(key)===v?'checked':''}${hint?` aria-describedby="${id}-hint"`:''}><span>${l}</span></label>`).join('')}</div>${hint?`<p class="hint" id="${id}-hint">${hint}</p>`:''}</fieldset>`;
+}
+function card(id,num,title,sub,body){return `<section class="card" id="${id}" aria-labelledby="${id}-title"><header class="card-head"><span class="step-num" aria-hidden="true">${String(num).padStart(2,'0')}</span><div><h2 id="${id}-title">${title}</h2>${sub?`<p>${sub}</p>`:''}</div></header>${body}</section>`;}
+function contextForm(){
+ return card('context-card',1,t('Contexto da avaliação','Assessment context'),'',`<div class="context-grid">${radios('elective',t('O procedimento é eletivo?','Is the procedure elective?'),YN())}${radios('exposure',t('GLP-1 / GLP-1–GIP nos últimos 6 meses?','GLP-1 / GLP-1–GIP within 6 months?'),YNU())}</div>`);
+}
+function checkRisk(item){return `<label class="check" for="risk-${item[0]}"><input type="checkbox" id="risk-${item[0]}" data-field="risk:${item[0]}" ${state.plan.risks.includes(item[0])?'checked':''}><span>${t(item[1],item[2])}</span></label>`;}
+function riskForm(){
+ // Without a POCUS pathway, the figure already specifies 7 days for long acting.
+ // Review remains necessary for short acting to detect the item-5 conflict.
+ if(state.plan.protocol==='no'&&E.DRUG_CLASS[state.plan.drug]==='long')return '';
+ const n=state.plan.risks.length;
+ let body=`<div class="risk-grid">${RISK_GROUPS.map((g,i)=>`<section class="risk-group" id="risk-group-${i}" aria-labelledby="risk-group-title-${i}"><h3 id="risk-group-title-${i}">${icon(g.icon)}${pair(g.title)}</h3>${g.items.map(checkRisk).join('')}</section>`).join('')}</div>`;
+ body+=`<div class="risk-extra" id="risk-extra"><h3>${t('Complementos do texto da nota · itens 7–9','Additional factors from the note · items 7–9')}</h3>${EXTRA_RISKS.map(checkRisk).join('')}</div>`;
+ body+=`<label class="check review-check" for="plan-reviewed"><input type="checkbox" id="plan-reviewed" data-field="plan.reviewed" ${state.plan.reviewed?'checked':''} ${n?'disabled':''} aria-describedby="review-help"><span><strong>${t('Revisei os fatores: nenhum presente','I reviewed the factors: none present')}</strong><small id="review-help">${t('Confirmo uso estável ≥ 12 semanas e ausência de sintomas.','I confirm stable use ≥ 12 weeks and no symptoms.')}</small></span></label>`;
+ body+=`<p class="risk-count${n?' positive':''}" id="risk-count">${n?t(`${n} fator${n===1?'':'es'} assinalado${n===1?'':'s'}. Um fator já muda o ramo.`,`${n} factor${n===1?'':'s'} selected. One factor changes the branch.`):state.plan.reviewed?t('Revisão negativa confirmada.','Negative review confirmed.'):t('Caixas vazias não confirmam ausência de risco.','Unchecked boxes do not confirm absence of risk.')}</p>`;
+ return card('risk-card',3,t('Fatores que mudam a decisão','Factors that change the decision'),t('Assinale os presentes ou confirme a revisão negativa.','Select those present or confirm a negative review.'),body);
+}
+function planForm(){
+ let body=radios('plan.therapy',t('Situação do tratamento','Treatment status'),[['on',t('Em uso','Ongoing')],['stopped',t('Já descontinuado','Discontinued')],['unknown',t('Não sei','Unknown')]]);
+ if(state.plan.therapy==='on'){
+  body+=`<div class="question" id="drug-field"><label class="field-label" for="plan-drug">${t('Medicamento','Medication')}</label><select class="select" id="plan-drug" data-field="plan.drug"><option value="">${t('Selecione o medicamento','Select the medication')}</option>${DRUGS.map(([v,pt,en])=>`<option value="${v}" ${state.plan.drug===v?'selected':''}>${t(pt,en)}</option>`).join('')}</select></div>`;
+  if(E.DRUG_CLASS[state.plan.drug])body+=radios('plan.protocol',t('Há protocolo institucional para POCUS gástrico?','Is there an institutional gastric POCUS pathway?'),YN(),t('Avaliação sistemática no dia, com profissional treinado e equipamento disponível.','Systematic assessment on the day, with trained staff and available equipment.'));
+ }
+ let html=card('plan-card',2,t('Medicação e estrutura do serviço','Medication and institutional capability'),'',body);
+ if(state.plan.therapy==='on'&&E.DRUG_CLASS[state.plan.drug]&&['yes','no'].includes(state.plan.protocol))html+=riskForm();
+ return html;
+}
+function handoffCard(){
+ if(!hasPlan())return '';
+ const p=state.plan,r=planDecision(),c=COPY[r.code];
+ let rows=`<dt>${t('Tratamento','Treatment')}</dt><dd>${p.therapy==='on'?drugName(p.drug):readableValue('therapy',p.therapy)}</dd>`;
+ if(p.protocol)rows+=`<dt>${t('POCUS previsto','POCUS planned')}</dt><dd>${readableValue('',p.protocol)}</dd>`;
+ rows+=`<dt>${t('Ramo sugerido','Suggested branch')}</dt><dd>${pair(c.title)}</dd>`;
+ return `<section class="handoff" id="handoff" aria-labelledby="handoff-title"><div class="handoff-head"><h3 id="handoff-title">${t('Referência do planejamento','Planning reference')}</h3><button type="button" class="btn small ghost" data-action="mode" data-value="plan">${t('Revisar','Review')}${icon('arrow')}</button></div><dl>${rows}</dl><p>${t('É uma referência, não uma confirmação. Registre abaixo o que ocorreu hoje.','A reference, not a confirmation. Record below what actually happened today.')}</p></section>`;
+}
+function numeric(key,label,hint){return `<div id="field-${idFor(key)}"><label class="field-label" for="${idFor(key)}">${label}</label><input type="text" inputmode="decimal" autocomplete="off" autocapitalize="off" spellcheck="false" class="numeric" id="${idFor(key)}" data-field="${key}" value="${esc(get(key))}" placeholder="${t('Ex.: 1,5','E.g. 1.5')}" ${hint?`aria-describedby="${idFor(key)}-hint"`:''}>${hint?`<p class="hint" id="${idFor(key)}-hint">${hint}</p>`:''}</div>`;}
+function scanForm(prefix){
+ const scan=get(prefix),id=idFor(prefix);
+ let html=radios(prefix+'.content',t('Qual é o achado do exame?','What is the scan finding?'),[['empty',t('Vazio · Perlas 0','Empty · Perlas 0')],['liquid',t('Somente líquido','Fluid only')],['solid',t('Sólido / particulado','Solid / particulate')],['uncertain',t('Inconclusivo','Inconclusive')]]);
+ if(scan.content==='liquid'){
+  html+=`<div class="sub-card" id="${id}-liquid">${radios(prefix+'.grade',t('Grau de Perlas','Perlas grade'),[['1',t('Grau 1','Grade 1')],['2',t('Grau 2','Grade 2')],['unknown',t('Não definido','Not determined')]])}${radios(prefix+'.unit',t('Unidade do volume estimado','Estimated-volume unit'),[['indexed','mL/kg'],['absolute',t('mL + peso','mL + weight')]])}<div class="question num-row" id="${id}-numbers">${numeric(prefix+'.volume',t('Volume','Volume')+' <span class="input-tail">'+(scan.unit==='absolute'?'mL':'mL/kg')+'</span>',t('Vírgula ou ponto decimal.','Comma or period decimal separator.'))}${scan.unit==='absolute'?numeric(prefix+'.weight',t('Peso usado na estimativa','Weight used in the estimate')+' <span class="input-tail">kg</span>',''):''}</div></div>`;
+  const c=E.classify(scan);let feedback='';
+  if(c.kind==='invalid')feedback=`<p class="invalid">${t('Entrada inválida: volume ≥ 0 e peso > 0, sem separador de milhares.','Invalid input: volume ≥ 0 and weight > 0, without thousands separators.')}</p>`;
+  if(c.volume!==undefined)feedback+=`<p class="hint">${t('Volume indexado','Indexed volume')}: <strong>${format(c.volume)} mL/kg</strong> · ${t('limiar','threshold')}: 1${t(',','.')}5 mL/kg.</p>`;
+  html+=`<div class="scan-feedback" id="${id}-feedback">${feedback}</div>`;
+ }
+ return html;
+}
+function dayForm(){
+ const d=state.day;
+ let html=handoffCard()+card('day-pocus-card',2,t('Disponibilidade no dia','Availability on the day'),'',radios('day.pocus',t('É possível realizar POCUS gástrico hoje?','Can gastric POCUS be performed today?'),YN(),t('Confirme a disponibilidade real, independentemente do planejamento.','Confirm actual availability, independently of the plan.')));
+ if(d.pocus==='no'){
+  let body=radios('day.prep',t('O preparo foi cumprido rigorosamente?','Was preparation rigorously completed?'),YNU(),t('Dieta líquida sem resíduos nas 24 h anteriores e jejum absoluto por 8–12 h, conforme o plano.','Residue-free liquids in the preceding 24 hours and complete fasting for 8–12 hours, as planned.'));
+  if(d.prep==='yes')body+=`<div class="sub-card" id="actual-medication">${radios('day.medication',t('Como ficou a medicação antes desta cirurgia?','How was medication managed before this surgery?'),[['held',t('Suspensão planejada cumprida','Planned withholding completed')],['continued',t('Medicação mantida','Medication continued')],['missed',t('Suspensão não cumprida','Withholding not completed')],['unknown',t('Não sei / sem plano','Unknown / no plan')]])}<p class="hint">${t('Salvaguarda do app: manutenção da medicação com POCUS indisponível exige revisão individual.','App safeguard: continued medication with POCUS unavailable requires individual review.')}</p></div>`;
+  html+=card('day-prep-card',3,t('Preparo e medicação: confirmar','Preparation and medication: confirm'),t('Ramo sem ultrassonografia','Branch without ultrasound'),body);
+ }
+ if(d.pocus==='yes'){
+  html+=card('day-scan-card',3,t('POCUS gástrico inicial','Initial gastric POCUS'),t('Avaliar o antro em supino e decúbito lateral direito.','Assess the antrum supine and in the right lateral position.'),scanForm('day.scan'));
+  if(E.classify(d.scan).kind==='high'){
+   let body=radios('day.canDelay',t('A cirurgia pode ser adiada?','Can surgery be postponed?'),YNU(),t('Decisão compartilhada, considerando a natureza do procedimento.','Shared decision, considering the nature of the procedure.'));
+   if(d.canDelay==='no'){
+    body+=`<div class="inline-note warning" id="prokinetic-note">${t('Considerar procinético EV e repetir POCUS. O uso não é obrigatório nem garante normalização.','Consider an IV prokinetic and repeat POCUS. Use is not mandatory and does not guarantee normalization.')}</div>${prokineticDetails()}`;
+    body+=`<div class="sub-card" id="repeat-confirmation">${radios('day.repeated',t('Já foi realizado um novo POCUS?','Has repeat POCUS been performed?'),[['no',t('Ainda não','Not yet')],['yes',t('Sim, registrar achado','Yes, record finding')]])}</div>`;
+   }
+   html+=card('day-delay-card',4,t('Alto risco: próximo passo','High risk: next step'),t('Volume > 1,5 mL/kg ou conteúdo sólido/particulado.','Volume > 1.5 mL/kg or solid/particulate content.'),body);
+   if(d.canDelay==='no'&&d.repeated==='yes')html+=card('day-repeat-card',5,t('POCUS de reavaliação','Repeat gastric POCUS'),t('Registre o achado atual; o exame anterior não é copiado.','Record the current finding; the previous scan is not copied.'),scanForm('day.repeat'));
+  }
+ }
+ return html;
+}
+function prepCard(){return `<section class="card prep" id="prep-reference" aria-labelledby="prep-title"><header class="prep-head"><h3 id="prep-title">${t('Preparo do fluxograma','Flowchart preparation')}</h3><small>SBA 2026</small></header><div class="prep-times"><div class="prep-time"><strong>24 h</strong><span>${t('Dieta líquida<br>sem resíduos','Residue-free<br>liquid diet')}</span></div><div class="prep-time"><strong>8–12 h</strong><span>${t('Jejum absoluto<br>antes do procedimento','Complete fasting<br>before the procedure')}</span></div></div><p>${t('Nas 8–12 h finais, interromper a ingestão conforme o plano anestésico.','During the final 8–12 hours, stop intake according to the anesthetic plan.')}</p><details id="liquids-details"><summary>${t('Quais líquidos?','Which liquids?')}</summary><p>${t('Água, café preto sem leite, chá, água de coco sem resíduos, sucos coados sem polpa e bebidas sem resíduos contendo carboidratos ou soluções de reidratação oral.','Water, black coffee without milk, tea, residue-free coconut water, strained pulp-free juice and residue-free carbohydrate drinks or oral rehydration solutions.')}</p><p>${sourceLinks([9,4])}</p></details></section>`;}
+function isPending(code){return code.endsWith('_pending');}
+function isReview(code){return code.endsWith('_unknown')||code.endsWith('_invalid')||['short_conflict','medication_review','therapy_stopped','outside','scan_indeterminate','scan_discordant','repeat_uncertain','drug_unknown'].includes(code);}
+function why(r){
+ const p=state.plan,d=state.day,c=COPY[r.code];
+ switch(r.code){
+  case 'continue':return t('POCUS previsto, revisão negativa confirmada, uso estável ≥ 12 semanas e ausência de sintomas.','POCUS planned, negative review confirmed, stable use ≥ 12 weeks and no symptoms.');
+  case 'hold7':return p.protocol==='no'?t('Medicamento de longa ação e ausência de protocolo institucional de POCUS.','Long-acting medication and no institutional POCUS pathway.'):t('Medicamento de longa ação com fator de risco ou instabilidade terapêutica.','Long-acting medication with a risk factor or unstable treatment.');
+  case 'hold1':return t('Medicamento de curta ação, sem protocolo de POCUS e sem fatores de risco na revisão confirmada.','Short-acting medication, no POCUS pathway and no risk factors in the confirmed review.');
+  case 'short_conflict':return t('Medicamento de curta ação com fator de risco ou instabilidade terapêutica.','Short-acting medication with a risk factor or unstable treatment.');
+  case 'caution_no_scan':return t('POCUS indisponível. Preparo completo e cumprimento da suspensão planejada confirmados.','POCUS unavailable. Full preparation and completion of planned withholding confirmed.');
+  case 'medication_review':return t('POCUS indisponível, com preparo cumprido, mas sem confirmação de suspensão conforme o plano.','POCUS unavailable with preparation completed, but withholding according to plan is not confirmed.');
+  case 'proceed':return r.scan?.why==='empty'?t('POCUS inicial: estômago vazio, Perlas 0.','Initial POCUS: empty stomach, Perlas 0.'):t(`POCUS inicial: Perlas 1, apenas líquido, ${format(r.scan.volume)} mL/kg (≤ 1,5 mL/kg).`,`Initial POCUS: Perlas 1, fluid only, ${format(r.scan.volume)} mL/kg (≤ 1.5 mL/kg).`);
+  case 'caution_repeat':return t('O exame inicial foi de alto risco; a reavaliação preenche o ramo de baixo risco. O fluxo conduz a cautela, não à técnica habitual automaticamente.','The initial scan was high risk; reassessment meets the low-risk branch. The pathway leads to caution, not automatically to the usual technique.');
+  case 'full_stomach':return t('A reavaliação ainda mostra volume > 1,5 mL/kg ou conteúdo sólido/particulado.','Reassessment still shows volume > 1.5 mL/kg or solid/particulate content.');
+  case 'postpone_high':return t('POCUS de alto risco e possibilidade de adiamento confirmada.','High-risk POCUS and feasibility of postponement confirmed.');
+  case 'postpone_prep':return t('POCUS indisponível e preparo não cumprido rigorosamente.','POCUS unavailable and preparation not rigorously completed.');
+  case 'prokinetic':return t('POCUS de alto risco; a equipe não considerou o adiamento possível. Ainda não há reavaliação documentada.','High-risk POCUS; postponement was not considered possible. No reassessment is documented yet.');
+  case 'scan_indeterminate':return t('O exame foi registrado como inconclusivo ou o grau não foi definido.','The scan was recorded as inconclusive or the grade was not determined.');
+  case 'scan_discordant':return t('Grau 2 informado com volume ≤ 1,5 mL/kg.','Grade 2 entered with volume ≤ 1.5 mL/kg.');
+  case 'repeat_uncertain':return t('O exame inicial foi de alto risco e a reavaliação não permite confirmar baixo risco.','The initial scan was high risk and reassessment does not establish low risk.');
+  default:return pair(c.body);
+ }
+}
+function nextActions(r){
+ const c=COPY[r.code];if(c.actions.length)return c.actions.map(pair);
+ const messages={
+  proceed:[t('Prosseguir com a técnica anestésica planejada, segundo a avaliação do anestesiologista.','Proceed with the planned anesthetic technique, according to the anesthesiologist’s assessment.')],
+  postpone_high:[t('Reagendar com preparo otimizado e reavaliar.','Reschedule with optimized preparation and reassess.')],
+  postpone_prep:[t('Reagendar com o preparo adequado.','Reschedule with adequate preparation.')],
+  scan_discordant:[t('Conferir a aquisição, a classificação e o cálculo antes de definir a conduta.','Check acquisition, grading and calculation before deciding management.')],
+  repeat_uncertain:[t('Reavaliar o exame e definir a conduta individualmente; o achado inicial não foi resolvido.','Reassess the scan and individualize management; the initial finding remains unresolved.')],
+  prokinetic:[t('Considerar procinético EV, conforme a referência, e repetir a avaliação gástrica.','Consider an IV prokinetic according to the reference and repeat gastric assessment.')]
+ };return messages[r.code]||[];
+}
+function attention(r){
+ const c=COPY[r.code];
+ if(r.code==='hold7'&&(state.plan.risks.length||state.plan.stable==='no'))return t('Em alto risco, o item 5 usa “pelo menos 7 dias”. Confirmar o intervalo final com a equipe e o protocolo institucional.','In high-risk patients, item 5 uses “at least 7 days.” Confirm the final interval with the team and institutional protocol.');
+ if(r.code==='full_stomach')return t('Medidas transcritas da figura. Individualizar a proteção da via aérea, sobretudo se houver via aérea difícil prevista (ressalva geral da nota, p. 2).','Measures transcribed from the figure. Individualize airway protection, especially with anticipated difficult airway (the note’s general qualification, p. 2).');
+ if(['short_conflict','medication_review','scan_indeterminate','scan_discordant','repeat_uncertain'].includes(r.code))return pair(c.body);
+ if(r.code==='continue')return t('É planejamento, não confirmação de preparo nem decisão final para o dia.','This is planning, not confirmation of preparation or a final day-of-procedure decision.');
+ if(r.code==='proceed')return t('Baixo risco não significa risco zero.','Low risk does not mean zero risk.');
+ if(r.code==='caution_no_scan')return t('O cumprimento do preparo não comprova estômago vazio.','Completed preparation does not establish an empty stomach.');
+ return '';
+}
+function resultHTML(r){
+ const c=COPY[r.code],pending=isPending(r.code),review=isReview(r.code),actions=nextActions(r),note=attention(r);
+ const status=pending?t('A completar','Incomplete'):review?t('Revisão','Review'):r.code==='prokinetic'?t('Próximo passo','Next step'):t('Fluxo aplicado','Pathway applied');
+ const stage=state.mode==='plan'?t('Planejamento','Planning'):t('Dia da cirurgia','Day of surgery');
+ let body=`<div class="result-main"><div class="status-label"><span>${stage}</span><span class="status-tag">${icon(pending?'layers':review||c.tone==='danger'||c.tone==='warning'?'shield':'check')}${status}</span></div><h2 id="result-title" tabindex="-1">${pair(c.title)}</h2>`;
+ if(pending)body+=`<p class="result-body">${pair(c.body)}</p>`;
+ else body+=`<div class="result-section"><h3>${t('Por quê?','Why?')}</h3><p class="why-text">${why(r)}</p></div>`;
+ if(actions.length)body+=`<div class="result-section"><h3>${t('Próximo passo','Next step')}</h3><ul class="action-list">${actions.map(a=>`<li>${a}</li>`).join('')}</ul></div>`;
+ if(note)body+=`<div class="safeguard"><strong>${t('Atenção','Note')}${c.guard?t(' · salvaguarda do app',' · app safeguard'):''}</strong>${note}</div>`;
+ if(c.guard&&!note&&!pending)body+=`<p class="hint">${t('Salvaguarda do aplicativo; não representa um novo ramo da SBA.','Application safeguard; not a new SBA branch.')}</p>`;
+ body+=`<p class="result-reference">${t('Base documental','Documentary basis')}: ${sourceLinks(c.pages)}</p>`;
+ if(state.mode==='plan'&&COMPLETED_PLAN.has(r.code))body+=`<button type="button" class="btn continue-stage" data-action="mode" data-value="day">${t('Ir para avaliação no dia','Go to day-of-surgery assessment')}${icon('arrow')}</button>`;
+ body+='</div>';
+ if(r.path.length)body+=`<details class="trace" id="decision-trace"><summary>${t('Caminho completo e texto de referência','Full decision path and reference text')}</summary><ol>${r.path.map(p=>`<li>${pair(PATH[p])}</li>`).join('')}</ol><p class="detail-body">${pair(c.body)}</p>${c.guard?`<p class="detail-body">${t('As salvaguardas estão descritas em Fonte e metodologia.','Safeguards are described in Source and methodology.')}</p>`:''}</details>`;
+ body+=`<div class="result-actions"><button type="button" class="btn small" data-action="copy">${icon('copy')}${t('Copiar resumo','Copy summary')}</button><button type="button" class="btn small" data-action="print">${icon('print')}${t('Imprimir','Print')}</button></div>`;
+ return `<section class="card result" id="result" data-tone="${c.tone}" data-code="${r.code}" aria-labelledby="result-title">${body}</section>`;
+}
+function shell(r){
+ const active=state.elective==='yes'&&state.exposure==='yes',c=COPY[r.code];
+ return `<header class="topbar" id="topbar"><div class="wrap top-inner"><div class="brand"><div class="brand-icon" aria-hidden="true">${icon('branch')}</div><div><h1>GLP-1 <span aria-hidden="true">/</span> ${t('Perioperatório','Perioperative')}<span class="version">v${E.VERSION}</span></h1><p class="brand-sub">${t('Apoio à decisão perioperatória','Perioperative decision support')} · SBA 2026</p></div></div><nav class="top-actions" aria-label="${t('Ferramentas','Tools')}"><button type="button" class="btn ghost" data-action="source" aria-label="${t('Fonte e metodologia','Source and methodology')}" title="${t('Fonte e metodologia','Source and methodology')}">${icon('book')}<span class="action-text">${t('Fonte','Source')}</span></button><button type="button" class="btn ghost" data-action="reset" aria-label="${t('Nova avaliação','New assessment')}" title="${t('Nova avaliação','New assessment')}">${icon('reset')}<span class="action-text">${t('Nova avaliação','New assessment')}</span></button><button type="button" class="btn lang-btn" data-action="language" aria-label="${t('Switch to English','Mudar para português')}" lang="${lang==='pt'?'en':'pt-BR'}">${icon('globe')}<span>${lang==='pt'?'EN':'PT'}</span></button></nav></div></header><main class="wrap page-main" id="main-content"><div class="workspace"><div class="form-column" id="form-column"><nav class="mode-switch" aria-label="${t('Etapa da avaliação','Assessment stage')}"><button type="button" id="tab-plan" data-action="mode" data-value="plan" aria-pressed="${state.mode==='plan'}" aria-controls="stage-content">${icon('layers')}<span>${t('Planejamento pré-operatório','Preoperative planning')}</span></button><button type="button" id="tab-day" data-action="mode" data-value="day" aria-pressed="${state.mode==='day'}" aria-controls="stage-content">${icon('scan')}<span>${t('Dia da cirurgia','Day of surgery')}</span></button></nav><p class="notice">${icon('shield')}<span>${t('Uso profissional. Apoia, não substitui, o julgamento clínico.','Professional use. Supports, not replaces, clinical judgment.')}</span></p>${contextForm()}<div id="stage-content">${active?(state.mode==='plan'?planForm():dayForm()):`<div class="empty-stage" id="context-hint">${icon('arrow')}<span>${t('Confirme o contexto para abrir as perguntas desta etapa.','Confirm the context to open this stage’s questions.')}</span></div>`}</div></div><aside class="aside" id="aside" aria-label="${t('Resultado e referência','Result and reference')}">${resultHTML(r)}${active&&state.plan.therapy!=='stopped'?prepCard():''}<p class="privacy-line">${icon('lock')}<span>${t('Sem identificação do paciente. Respostas apenas nesta aba.','No patient identifiers. Answers stay in this tab.')}</span></p></aside></div><footer class="footer"><div class="footer-meta"><span>v${E.VERSION}</span><span>${t('Fonte: SBA · 15/05/2026','Source: SBA · 15 May 2026')}</span></div><button type="button" class="btn ghost small" data-action="source">${t('Ferramenta independente · fonte e limites','Independent tool · source and limitations')}${icon('arrow')}</button></footer></main><button type="button" class="mobile-result" id="mobile-result" data-tone="${c.tone}" data-action="result"><span class="mobile-copy"><small>${t('Resultado desta etapa','This stage’s result')}</small><strong>${pair(c.title)}</strong></span><span class="mobile-link">${t('Ver resultado','View result')}${icon('arrow')}</span></button>`;
+}
+/* Keyed DOM reconciliation: preserve input nodes, cursor position and open details.
+ * Generating a new virtual fragment does not replace the page or active controls.
+ * There are no dependencies, inline handlers, analytics or network requests. */
+function nodeKey(node){return node.nodeType===1?(node.id||node.getAttribute('data-key')||''):'';}
+function compatible(a,b){return !!a&&a.nodeType===b.nodeType&&(a.nodeType!==1||(a.tagName===b.tagName&&nodeKey(a)===nodeKey(b)));}
+function morphElement(oldNode,newNode){
+ if(oldNode.nodeType===3||oldNode.nodeType===8){if(oldNode.nodeValue!==newNode.nodeValue)oldNode.nodeValue=newNode.nodeValue;return;}
+ const oldOpen=oldNode.tagName==='DETAILS'&&oldNode.open;
+ for(const attr of [...oldNode.attributes])if(!newNode.hasAttribute(attr.name)&&!(attr.name==='open'&&oldOpen))oldNode.removeAttribute(attr.name);
+ for(const attr of [...newNode.attributes])if(oldNode.getAttribute(attr.name)!==attr.value)oldNode.setAttribute(attr.name,attr.value);
+ if(oldNode.tagName==='INPUT'){
+  if(oldNode.type==='checkbox'||oldNode.type==='radio')oldNode.checked=newNode.hasAttribute('checked');
+  else if(oldNode.value!==newNode.value)oldNode.value=newNode.value;
+  oldNode.disabled=newNode.disabled;
+ }
+ reconcileChildren(oldNode,newNode);
+ if(oldNode.tagName==='SELECT'){
+  const intended=newNode.querySelector('option[selected]')?.value||'';
+  if(oldNode.value!==intended)oldNode.value=intended;
+ }
+ if(oldOpen)oldNode.open=true;
+}
+function reconcileChildren(parent,next){
+ const incoming=[...next.childNodes];let index=0;
+ for(const fresh of incoming){
+  let old=parent.childNodes[index];
+  if(!compatible(old,fresh)){
+   const key=nodeKey(fresh);
+   const match=key?[...parent.childNodes].slice(index+1).find(n=>compatible(n,fresh)):null;
+   if(match){parent.insertBefore(match,old||null);old=match;}
+   else{parent.insertBefore(fresh.cloneNode(true),old||null);index++;continue;}
+  }
+  morphElement(old,fresh);index++;
+ }
+ while(parent.childNodes.length>incoming.length)parent.lastChild.remove();
+}
+function render(){
+ const r=E.evaluate(state),fragment=document.createElement('template');fragment.innerHTML=shell(r);
+ reconcileChildren($('app'),fragment.content);
+ document.documentElement.lang=lang==='pt'?'pt-BR':'en';
+ document.title=t('GLP-1 | Perioperatório','GLP-1 | Perioperative');
+ $('skip-link').textContent=t('Ir para a avaliação','Skip to assessment');
+ if(lastCode!==r.code){lastCode=r.code;$('announcer').textContent=pair(COPY[r.code].title);}
+}
+function readableValue(key,value){
+ const values={yes:['Sim','Yes'],no:['Não','No'],unknown:['Não confirmado','Not confirmed'],on:['Em uso','Ongoing'],stopped:['Já descontinuado','Discontinued'],held:['Suspensão planejada cumprida — informado no dia','Planned withholding completed — reported on the day'],continued:['Medicação mantida — informado no dia','Medication continued — reported on the day'],missed:['Suspensão não cumprida — informado no dia','Withholding not completed — reported on the day'],empty:['Vazio / Perlas 0','Empty / Perlas 0'],liquid:['Somente líquido','Fluid only'],solid:['Sólido / particulado','Solid / particulate'],uncertain:['Inconclusivo','Inconclusive'],indexed:['mL/kg','mL/kg'],absolute:['mL + peso','mL + weight']};
+ return value?(values[value]?pair(values[value]):String(value)):t('Não informado','Not entered');
+}
+function scanSummary(scan,label){
+ if(!scan.content)return [label+': '+t('Não informado','Not entered')];
+ const rows=[label+': '+readableValue('',scan.content)];
+ if(scan.content==='liquid'){
+  rows.push(t('Grau de Perlas: ','Perlas grade: ')+readableValue('',scan.grade));
+  rows.push(t('Volume informado: ','Entered volume: ')+(scan.volume||t('Não informado','Not entered'))+' '+(scan.unit==='absolute'?'mL':'mL/kg'));
+  if(scan.unit==='absolute')rows.push(t('Peso usado na estimativa: ','Weight used in estimate: ')+(scan.weight||t('Não informado','Not entered'))+' kg');
+  const c=E.classify(scan);if(c.volume!==undefined)rows.push(t('Volume indexado (sem arredondar o limiar): ','Indexed volume (no rounding before threshold): ')+format(c.volume)+' mL/kg');
+ }
+ return rows;
+}
+function summaryText(){
+ const r=E.evaluate(state),c=COPY[r.code],p=state.plan,d=state.day;
+ const rows=[t('GLP-1 / PERIOPERATÓRIO — RESUMO PARA REVISÃO','GLP-1 / PERIOPERATIVE — SUMMARY FOR REVIEW'),t('Rascunho de apoio; não é prescrição nem liberação cirúrgica.','Decision-support draft; not a prescription or surgical clearance.'),'',t('CONTEXTO','CONTEXT'),t('Etapa atual: ','Current stage: ')+(state.mode==='plan'?t('Planejamento pré-operatório','Preoperative planning'):t('Dia da cirurgia','Day of surgery')),t('Procedimento eletivo: ','Elective procedure: ')+readableValue('',state.elective),t('GLP-1/GLP-1–GIP nos últimos 6 meses: ','GLP-1/GLP-1–GIP within 6 months: ')+readableValue('',state.exposure)];
+ if(hasPlan()){
+  rows.push('',t('PLANEJAMENTO INFORMADO — NÃO CONFIRMA CUMPRIMENTO','REPORTED PLAN — DOES NOT CONFIRM COMPLETION'),t('Tratamento: ','Treatment: ')+readableValue('',p.therapy));
+  if(p.therapy==='on'){
+   rows.push(t('Medicamento: ','Medication: ')+drugName(p.drug),t('Protocolo de POCUS previsto: ','POCUS pathway planned: ')+readableValue('',p.protocol));
+   if(p.risks.length)rows.push(t('Fatores assinalados: ','Selected factors: ')+p.risks.map(id=>{const x=ALL_RISKS.find(a=>a[0]===id);return x?t(x[1],x[2]):id;}).join('; '),t('Os demais fatores não são automaticamente considerados ausentes.','Other factors are not automatically considered absent.'));
+   else rows.push(t('Revisão negativa: ','Negative review: ')+(p.reviewed?t('Confirmada; uso estável ≥ 12 semanas e assintomático.','Confirmed; stable use ≥ 12 weeks and no symptoms.'):t('Não confirmada / não solicitada neste ramo.','Not confirmed / not requested in this branch.')));
+  }
+  const pr=planDecision();rows.push(t('Indicação do fluxo no planejamento: ','Planning pathway indication: ')+pair(COPY[pr.code].title));
+  rows.push(t('Não foi registrado neste app que a orientação foi dada ou executada.','This app does not record that the instruction was issued or carried out.'));
+ }
+ if(hasDay()){
+  rows.push('',t('DADOS INFORMADOS NO DIA','INFORMATION REPORTED ON THE DAY'),t('POCUS disponível hoje: ','POCUS available today: ')+readableValue('',d.pocus));
+  if(d.pocus==='no'){
+   rows.push(t('Preparo rigorosamente cumprido: ','Preparation rigorously completed: ')+readableValue('',d.prep));
+   if(d.prep==='yes')rows.push(t('Medicação: ','Medication: ')+readableValue('',d.medication));
+  }else if(d.pocus==='yes'){
+   rows.push(...scanSummary(d.scan,t('POCUS inicial','Initial POCUS')));
+   if(E.classify(d.scan).kind==='high'){
+    rows.push(t('Adiamento possível: ','Postponement feasible: ')+readableValue('',d.canDelay));
+    if(d.canDelay==='no'){
+     rows.push(t('Novo POCUS realizado: ','Repeat POCUS performed: ')+readableValue('',d.repeated));
+     if(d.repeated==='yes')rows.push(...scanSummary(d.repeat,t('POCUS de reavaliação','Repeat POCUS')));
+    }
+   }
+   rows.push(t('Preparo e cumprimento medicamentoso não são inferidos a partir do POCUS.','Preparation and medication adherence are not inferred from POCUS.'));
+  }
+ }else if(state.mode==='day')rows.push('',t('Informações do dia: ainda não confirmadas.','On-the-day information: not yet confirmed.'));
+ rows.push('',t('RESULTADO DA ETAPA ATUAL','CURRENT STAGE RESULT'),pair(c.title),why(r));
+ const actions=nextActions(r);if(actions.length)rows.push('',t('PRÓXIMO PASSO','NEXT STEP'),...actions.map(a=>'• '+a));
+ const note=attention(r);if(note)rows.push('',t('ATENÇÃO','NOTE'),note);
+ if(isPending(r.code)||isReview(r.code))rows.push('',t('PENDÊNCIA / REVISÃO NECESSÁRIA','PENDING / REVIEW REQUIRED'),pair(c.title));
+ if(c.guard)rows.push(t('Inclui salvaguarda de software, não novo ramo da SBA.','Includes a software safeguard, not a new SBA branch.'));
+ if(state.elective==='yes'&&state.exposure==='yes'&&p.therapy!=='stopped')rows.push('',t('REFERÊNCIA DE PREPARO — NÃO ATESTA CUMPRIMENTO','PREPARATION REFERENCE — DOES NOT ATTEST COMPLETION'),t('Dieta líquida sem resíduos nas 24 h anteriores; jejum absoluto nas 8–12 h finais, conforme o plano anestésico.','Residue-free liquids in the preceding 24 hours; complete fasting during the final 8–12 hours, according to the anesthetic plan.'));
+ rows.push('',t('CAMINHO DO FLUXO','PATHWAY'),...(r.path.length?r.path.map(k=>'• '+pair(PATH[k])):[t('Ainda não definido.','Not yet determined.')]),'',t('FONTE E VERSÃO','SOURCE AND VERSION'),'C.SBA-01744/2026 · 15/05/2026 · '+c.pages.map(n=>'p. '+n).join(', '),SOURCE,`GLP-1 / Perioperatório v${E.VERSION} · software 14/09/2026`,t('Ferramenta independente, sem endosso da SBA. Revisão clínica independente não documentada.','Independent tool, without SBA endorsement. Independent clinical review not documented.'));
+ return rows.join('\n');
+}
+function updatePrint(){$('printArea').innerHTML=`<h1>${t('GLP-1 · Resumo para revisão','GLP-1 · Summary for review')}</h1><p class="print-meta">${t('Rascunho de apoio; não é prescrição nem liberação cirúrgica.','Decision-support draft; not a prescription or surgical clearance.')}</p><pre>${esc(summaryText().split("\n").slice(3).join("\n"))}</pre>`;}
+function showToast(message){clearTimeout(toastTimer);$('toast').textContent=message;$('toast').hidden=false;toastTimer=setTimeout(()=>{$('toast').hidden=true;},4500);}
+function showDialog(content){dialogFocus=document.activeElement;const d=$('infoDialog');d.innerHTML=content;d.showModal();}
+function closeDialog(){$('infoDialog').close();if(dialogFocus?.isConnected)dialogFocus.focus({preventScroll:true});}
+function resetDialog(){
+ if(!hasAnswers()){state=E.initialState();render();showToast(t('Nova avaliação iniciada.','New assessment started.'));return;}
+ showDialog(`<div class="dialog-inner"><header class="dialog-head"><h2 id="dialogTitle">${t('Iniciar uma nova avaliação?','Start a new assessment?')}</h2><button class="btn small" type="button" data-action="close-dialog" aria-label="${t('Fechar','Close')}">${icon('x')}</button></header><p>${t('Todas as respostas das duas etapas serão apagadas. O idioma será mantido.','All answers in both stages will be cleared. Language preference will be retained.')}</p><div class="source-links"><button class="btn" type="button" data-action="close-dialog" autofocus>${t('Cancelar','Cancel')}</button><button class="btn primary" type="button" data-action="confirm-reset">${t('Limpar e começar','Clear and start')}</button></div></div>`);
+}
+function fallbackCopy(text){showDialog(`<div class="dialog-inner"><header class="dialog-head"><h2 id="dialogTitle">${t('Selecione e copie o resumo','Select and copy the summary')}</h2><button class="btn small" type="button" data-action="close-dialog" aria-label="${t('Fechar','Close')}">${icon('x')}</button></header><p>${t('A cópia automática não está disponível neste navegador/contexto.','Automatic copying is unavailable in this browser/context.')}</p><textarea id="copyText" readonly aria-label="${t('Resumo para copiar','Summary to copy')}">${esc(text)}</textarea></div>`);$('copyText').focus();$('copyText').select();}
+async function copy(){const text=summaryText();try{if(!navigator.clipboard?.writeText)throw new Error('Clipboard unavailable');await navigator.clipboard.writeText(text);showToast(t('Resumo copiado. Revise antes de usar.','Summary copied. Review before use.'));}catch(_){fallbackCopy(text);}}
+function handleField(event){
+ const field=event.target.closest('[data-field]');if(!field)return;
+ if(field.type==='radio'&&!field.checked)return;
+ const key=field.dataset.field,value=field.type==='checkbox'?field.checked:field.value;
+ if(!key.startsWith('risk:')&&get(key)===value)return;
+ const invalidateDay=(key.startsWith('plan.')||key.startsWith('risk:'))&&hasDay();
+ state=E.transition(state,key,value);render();
+ if(invalidateDay)showToast(t('Planejamento alterado. Confirme novamente os dados do dia.','Planning changed. Reconfirm the on-the-day information.'));
+}
+function scrollToResult(){const smooth=!matchMedia('(prefers-reduced-motion: reduce)').matches;$('result').scrollIntoView({behavior:smooth?'smooth':'auto',block:'start'});$('result-title').focus({preventScroll:true});}
+function failSafe(error){
+ console.error('GLP1 interface error',error);
+ $('app').hidden=true;$('printArea').innerHTML='';
+ $('fatal').hidden=false;$('fatal').innerHTML='<strong>Não use o resultado desta avaliação. / Do not use this assessment’s result.</strong><p>Ocorreu um erro na interface. Recarregue a página para iniciar uma nova avaliação. / An interface error occurred. Reload to start a new assessment.</p><button class="btn" type="button" id="reload-app">Recarregar / Reload</button>';
+ $('reload-app').addEventListener('click',()=>location.reload());
+}
+document.addEventListener('input',event=>{if(event.target.matches('input[type="text"][data-field]'))try{handleField(event);}catch(e){failSafe(e);}});
+document.addEventListener('change',event=>{if(event.target.matches('[data-field]:not(input[type="text"])'))try{handleField(event);}catch(e){failSafe(e);}});
+document.addEventListener('click',event=>{
+ const control=event.target.closest('[data-action]');if(!control)return;
+ try{
+  switch(control.dataset.action){
+   case 'language':lang=lang==='pt'?'en':'pt';try{localStorage.setItem('glp1-ui-language',lang);}catch(_){}render();break;
+   case 'mode':state=E.transition(state,'mode',control.dataset.value);render();if(control.id!=='tab-plan'&&control.id!=='tab-day')$('tab-'+state.mode).scrollIntoView({behavior:'auto',block:'start'});break;
+   case 'source':sourceDialog();break;
+   case 'reset':resetDialog();break;
+   case 'confirm-reset':state=E.initialState();closeDialog();render();window.scrollTo({top:0,behavior:'auto'});$('elective-yes').focus({preventScroll:true});showToast(t('Nova avaliação. As duas etapas foram limpas.','New assessment. Both stages were cleared.'));break;
+   case 'close-dialog':closeDialog();break;
+   case 'copy':void copy();break;
+   case 'print':updatePrint();window.print();break;
+   case 'result':scrollToResult();break;
+  }
+ }catch(error){failSafe(error);}
+});
+$('infoDialog').addEventListener('click',event=>{if(event.target===$('infoDialog')){const r=$('infoDialog').getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)closeDialog();}});
+window.addEventListener('beforeprint',updatePrint);
+// Read-only inspection aids for regression tests; no setters or persistence hooks.
+window.GLP1App=Object.freeze({getState:()=>JSON.parse(JSON.stringify(state)),getDecision:()=>E.evaluate(state),summaryText,render,source:SOURCE});
+try{render();}catch(error){failSafe(error);}
+})();
+</script>
+</body>
+</html>
