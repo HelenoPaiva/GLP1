@@ -59,4 +59,4 @@ A MIT permite reutilização, modificação e distribuição, inclusive comercia
 
 The complete app is the single **`index.html`** file. It has a dark interface, Portuguese/English toggle, responsive layout, and copy/print summaries. No scheduling fields, patient accounts, external runtime libraries, or automatic guideline updates are included.
 
-**Author and maintainer:** Heleno Paiva — **heleno@gmail.com**. The GitHub profile link is a temporary placeholder; replace it with the final repository URL in the app configuration and software citation metadata. Code and original documentation are MIT-licensed; external clinical sources retain their own rights. Cite the software and the underlying SBA note separately.
+**Author and maintainer:** Heleno Paiva — **heleno@gmail.com**. 
